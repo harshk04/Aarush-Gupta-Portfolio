@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 const defaultMeta = {
   title: 'Aarush Gupta | Student Entrepreneur',
   description:
-    'Portfolio of Aarush Gupta — a Class 12 student focused on entrepreneurship, innovation, technology, and practical learning.',
+    "Aarush Gupta's portfolio highlighting entrepreneurship, innovation, leadership, and practical learning.",
   url: 'https://aarushgupta.is-a.dev',
   image: 'https://aarushgupta.is-a.dev/images/aarush.png',
 };

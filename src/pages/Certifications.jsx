@@ -1,126 +1,239 @@
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, Download, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
-import { companyCertificates, courseCertificates } from '../data/profile.js';
 
-const Certifications = () => (
-  <div className="space-y-18">
-    <Seo
-      title="Certifications"
-      description="The split certificate pages from Aarush Gupta's 19-page certificate PDF."
-      url="https://aarushgupta.is-a.dev/certifications"
-    />
+const certificates = [
+  {
+    title: 'Professional Networking for Career Growth',
+    description: 'A practical introduction to building meaningful professional relationships with confidence.',
+    pdf: '/certificates/Professional%20Networking%20for%20Career%20Growth.pdf',
+    preview: '/images/internships/Professional_Networking_for_Career_Growth.jpg',
+  },
+  {
+    title: 'AI for Business Professionals',
+    description: 'Explores how AI can support smarter business decisions, productivity, and ethical use.',
+    pdf: '/certificates/AI%20for%20Business%20Professionals.pdf',
+    preview: '/images/internships/AI_for_Business_Professionals.jpg',
+  },
+  {
+    title: 'AI for Beginners',
+    description: 'A clear starting point for understanding AI concepts, data, and responsible use.',
+    pdf: '/certificates/AI%20For%20Beginners.pdf',
+    preview: '/images/internships/AI_For_Beginners.jpg',
+  },
+  {
+    title: 'CX for Business Success',
+    description: 'Focuses on customer experience, trust, and the role of listening in business growth.',
+    pdf: '/certificates/CX%20For%20Business%20Success.pdf',
+    preview: '/images/internships/CX_For_Business_Success.jpg',
+  },
+  {
+    title: 'Introduction to Cybersecurity Awareness',
+    description: 'Builds awareness of digital safety habits and the basics of protecting information.',
+    pdf: '/certificates/Introduction%20to%20Cybersecurity%20Awareness.pdf',
+    preview: '/images/internships/Introduction_to_Cybersecurity_Awareness.jpg',
+  },
+  {
+    title: 'Agile Project Management',
+    description: 'An introduction to agile planning, iteration, and flexible teamwork in projects.',
+    pdf: '/certificates/Agile%20Project%20Maqnagement.pdf',
+    preview: '/images/internships/Agile_Project_Maqnagement.jpg',
+  },
+];
 
-    <section>
-      <Container className="ui-surface grid gap-8 rounded-3xl border border-slate-200 bg-white/80 p-8 text-left shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <div className="space-y-5">
-          <SectionTitle
-            eyebrow="Credentials"
-            title="Course and company certificates"
-            description="The certificates are now grouped into online course completions and company/service certificates."
-          />
-          <div className="flex flex-wrap gap-3">
-            <Button as="a" to="/resume" variant="secondary">
-              View resume overview
-            </Button>
+const Certifications = () => {
+  const [activeCertificate, setActiveCertificate] = useState(null);
+
+  useEffect(() => {
+    if (!activeCertificate) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveCertificate(null);
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [activeCertificate]);
+
+  return (
+    <div className="space-y-18">
+      <Seo
+        title="Certifications"
+        description="Professional certifications and learning achievements that reflect Aarush Gupta's interest in business, technology, communication, project management, and continuous learning."
+        url="https://aarushgupta.is-a.dev/certifications"
+      />
+
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.1),transparent_34%)]" />
+        <Container className="ui-surface rounded-3xl border border-slate-200 bg-white/80 p-8 text-left shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/10">
+          <div className="space-y-5">
+            <SectionTitle
+              eyebrow="Certifications"
+              title="Professional certifications and learning achievements"
+              description="Professional certifications and learning achievements that reflect my interest in business, technology, communication, project management, and continuous learning."
+            />
+            <div className="flex flex-wrap gap-3">
+              <Button as="a" to="/resume" variant="secondary">
+                View resume overview
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="ui-surface space-y-4 rounded-2xl border border-slate-200 bg-white/90 p-5 text-sm text-slate-700 shadow-sm hover:border-primary/40 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-200">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            What you’ll find here
-          </p>
-          <ul className="mt-2 space-y-2">
-            <li>• 6 online course completion certificates.</li>
-            <li>• 13 company/service certificates.</li>
-            <li>• Direct links to the renamed PDFs inside `public/certificates`.</li>
-          </ul>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
 
-    <section>
-      <Container className="space-y-8">
-        <div className="space-y-6">
-          <h3 className="text-sm font-heading font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">
-            Course completion certificates
-          </h3>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {courseCertificates.map((certificate) => (
-              <article
+      <section>
+        <Container className="space-y-8">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {certificates.map((certificate, index) => (
+              <motion.article
                 key={certificate.title}
-                className="ui-surface-strong flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.04 }}
+                className="ui-surface-strong flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
-                      {certificate.category}
-                    </p>
-                    <h4 className="mt-2 text-base font-heading font-semibold text-slate-900 dark:text-white">
-                      {certificate.title}
-                    </h4>
-                  </div>
-                  <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
-                    PDF
-                  </span>
-                </div>
-                <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{certificate.description}</p>
-                <Button
-                  as="a"
-                  href={certificate.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="secondary"
-                  className="mt-6 w-max"
+                <button
+                  type="button"
+                  onClick={() => setActiveCertificate(certificate)}
+                  className="group relative overflow-hidden"
+                  aria-label={`Preview ${certificate.title}`}
                 >
-                  Open page
-                </Button>
-              </article>
+                  <img
+                    src={certificate.preview}
+                    alt={`${certificate.title} certificate preview`}
+                    className="h-64 w-full bg-white object-contain transition duration-300 group-hover:scale-[1.01]"
+                    loading="lazy"
+                  />
+                </button>
+
+                <div className="flex flex-1 flex-col gap-4 p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
+                      Certificate
+                    </span>
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400 dark:text-slate-500">
+                      Credential
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-heading font-semibold text-slate-900 dark:text-white">
+                    {certificate.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                    {certificate.description}
+                  </p>
+
+                  <div className="mt-auto pt-2">
+                    <Button
+                      as="a"
+                      href={certificate.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="secondary"
+                      icon={ArrowUpRight}
+                      iconPosition="right"
+                      className="w-full justify-center sm:w-auto"
+                    >
+                      View Certificate
+                    </Button>
+                  </div>
+                </div>
+              </motion.article>
             ))}
           </div>
-        </div>
+        </Container>
+      </section>
 
-        <div className="space-y-6">
-          <h3 className="text-sm font-heading font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">
-            Company and service certificates
-          </h3>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {companyCertificates.map((certificate) => (
-              <article
-                key={certificate.title}
-                className="ui-surface-strong flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
+      <AnimatePresence>
+        {activeCertificate ? (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${activeCertificate.title} certificate viewer`}
+            onClick={() => setActiveCertificate(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 18 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 18 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="relative w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveCertificate(null)}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white"
+                aria-label="Close certificate viewer"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
-                      {certificate.category}
-                    </p>
-                    <h4 className="mt-2 text-base font-heading font-semibold text-slate-900 dark:text-white">
-                      {certificate.title}
-                    </h4>
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="grid gap-0 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
+                <div className="bg-slate-950 p-4 sm:p-6">
+                  <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
+                    <iframe
+                      title={activeCertificate.title}
+                      src={activeCertificate.pdf}
+                      className="h-[78vh] w-full"
+                    />
                   </div>
-                  <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
-                    PDF
-                  </span>
                 </div>
-                <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{certificate.description}</p>
-                <Button
-                  as="a"
-                  href={certificate.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="secondary"
-                  className="mt-6 w-max"
-                >
-                  Open page
-                </Button>
-              </article>
-            ))}
+
+                <div className="space-y-6 p-6 sm:p-8">
+                  <div className="space-y-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                      Certificate
+                    </p>
+                    <h3 className="text-3xl font-heading font-semibold text-slate-900 dark:text-white">
+                      {activeCertificate.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                      {activeCertificate.description}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <a
+                      href={activeCertificate.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+                    >
+                      Open in new tab
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                    <a
+                      href={activeCertificate.pdf}
+                      download
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:text-slate-200"
+                    >
+                      Download
+                      <Download className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </Container>
-    </section>
-  </div>
-);
+        ) : null}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export default Certifications;

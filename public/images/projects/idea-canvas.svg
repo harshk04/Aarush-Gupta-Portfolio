@@ -1,0 +1,39 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="180" y1="180" x2="980" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="soft" x1="260" y1="240" x2="980" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#A855F7" stop-opacity=".06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="56" fill="url(#bg)"/>
+  <circle cx="960" cy="180" r="210" fill="#22D3EE" fill-opacity=".08"/>
+  <circle cx="250" cy="620" r="240" fill="#A855F7" fill-opacity=".10"/>
+  <rect x="120" y="110" width="520" height="580" rx="36" fill="white" fill-opacity=".04" stroke="white" stroke-opacity=".10"/>
+  <rect x="180" y="170" width="400" height="66" rx="22" fill="#0B1224" fill-opacity=".78" stroke="#22D3EE" stroke-opacity=".35"/>
+  <text x="208" y="211" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">IDEA CANVAS</text>
+  <text x="180" y="284" fill="#7DD3FC" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="5">PROBLEM</text>
+  <rect x="180" y="305" width="400" height="112" rx="26" fill="url(#soft)" stroke="white" stroke-opacity=".08"/>
+  <text x="208" y="356" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">What needs solving?</text>
+  <text x="208" y="388" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="400">A simple framework for turning observations into</text>
+  <text x="208" y="412" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="400">clear business thinking and early direction.</text>
+  <rect x="180" y="450" width="400" height="152" rx="26" fill="#111827" fill-opacity=".78" stroke="white" stroke-opacity=".08"/>
+  <rect x="210" y="486" width="148" height="34" rx="17" fill="#22D3EE" fill-opacity=".14" stroke="#22D3EE" stroke-opacity=".25"/>
+  <text x="228" y="508" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4">VALUE</text>
+  <rect x="380" y="486" width="170" height="34" rx="17" fill="#A855F7" fill-opacity=".14" stroke="#A855F7" stroke-opacity=".25"/>
+  <text x="398" y="508" fill="#E9D5FF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4">NEXT STEPS</text>
+  <path d="M670 540C760 450 900 390 1010 320" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="670" cy="540" r="18" fill="#22D3EE"/>
+  <circle cx="820" cy="444" r="14" fill="#60A5FA"/>
+  <circle cx="960" cy="338" r="18" fill="#A855F7"/>
+  <path d="M690 540H1010" stroke="white" stroke-opacity=".10" stroke-width="2" stroke-dasharray="10 14"/>
+  <text x="690" y="608" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">From insight to action</text>
+  <text x="690" y="642" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="18">Business thinking made visual.</text>
+</svg>

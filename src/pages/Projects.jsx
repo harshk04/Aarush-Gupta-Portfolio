@@ -19,7 +19,7 @@ const Projects = () => {
     <div className="space-y-16">
       <Seo
         title="Projects"
-        description="A gallery of idea-driven projects focused on business, research, technology, and innovation."
+        description="A curated showcase of ideas, research, and practical work shaped by Aarush Gupta's interests in business, innovation, and technology."
         url="https://aarushgupta.is-a.dev/projects"
       />
 
@@ -28,18 +28,10 @@ const Projects = () => {
         <Container className="ui-surface grid gap-10 rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-soft backdrop-blur hover:border-primary/40 dark:border-white/10 dark:bg-white/10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
           <div className="space-y-4 text-left">
             <SectionTitle
-              eyebrow="Project gallery"
-              title="Idea-led work, not filler."
-              description="Each card here points to a concept or working direction that fits Aarush's interests in business, innovation, research, and technology."
+              eyebrow="Projects"
+              title="Ideas shaped with purpose."
+              description="A curated collection of concepts, research, and practical thinking that reflects how Aarush approaches business and innovation."
             />
-          </div>
-          <div className="ui-surface space-y-4 rounded-2xl border border-slate-200 bg-white/90 p-5 text-sm text-slate-700 shadow-sm hover:border-primary/40 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-200">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              How to read this page
-            </p>
-            <p>
-              Use the filters to browse the projects by theme. The cards are designed to keep the portfolio useful and honest while still feeling complete.
-            </p>
           </div>
         </Container>
       </section>
@@ -48,7 +40,7 @@ const Projects = () => {
         <Container className="grid gap-10 lg:grid-cols-[260px_minmax(0,1fr)]">
           <aside className="ui-surface space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5 lg:sticky lg:top-24 lg:self-start">
             <h3 className="text-sm font-heading font-semibold text-slate-900 dark:text-white">
-              Filter by theme
+              Filters
             </h3>
             <div className="space-y-2">
               {projectFilters.map((filter) => (
@@ -63,9 +55,6 @@ const Projects = () => {
                   }`}
                 >
                   <span>{filter.label}</span>
-                  {activeFilter === filter.id && (
-                    <span className="text-[10px] uppercase tracking-[0.2em]">Active</span>
-                  )}
                 </button>
               ))}
             </div>

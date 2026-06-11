@@ -1,6 +1,39 @@
 import nodemailer from 'nodemailer';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const DEFAULT_RECIPIENT = 'kumawatharsh2004@gmail.com';
+
+const loadLocalEnv = () => {
+  const envPath = path.resolve(process.cwd(), '.env');
+
+  if (!fs.existsSync(envPath)) {
+    return;
+  }
+
+  const content = fs.readFileSync(envPath, 'utf8');
+
+  for (const line of content.split(/\r?\n/)) {
+    const trimmed = line.trim();
+
+    if (!trimmed || trimmed.startsWith('#') || !trimmed.includes('=')) {
+      continue;
+    }
+
+    const separatorIndex = trimmed.indexOf('=');
+    const key = trimmed.slice(0, separatorIndex).trim();
+    const rawValue = trimmed.slice(separatorIndex + 1).trim();
+
+    if (!key || process.env[key] !== undefined) {
+      continue;
+    }
+
+    const quoted = rawValue.match(/^(['"])(.*)\1$/);
+    process.env[key] = quoted ? quoted[2] : rawValue;
+  }
+};
+
+loadLocalEnv();
 
 const env = (name, fallback = '') => process.env[name] ?? fallback;
 

@@ -11,9 +11,9 @@ export const projects = [
     id: 'idea-canvas',
     title: 'Idea Canvas',
     description:
-      'A simple framework for moving from a problem statement to a business idea, value proposition, and first actions.',
-    image: '/images/aarush.png',
-    tags: ['Business', 'Innovation'],
+      'A structured framework for moving from a problem statement to a sharper business concept, a clearer value proposition, and practical next steps.',
+    image: '/images/projects/idea-canvas.svg',
+    tags: ['Strategy', 'Innovation'],
     filter: ['business', 'innovation'],
     links: {
       demo: '#',
@@ -22,10 +22,10 @@ export const projects = [
   },
   {
     id: 'market-notes',
-    title: 'Market Research Notes',
+    title: 'Market Signals',
     description:
-      'A research board for collecting observations, competitor insights, and customer questions before building anything.',
-    image: '/images/aarush.png',
+      'A research log for collecting customer insights, competitor observations, and market patterns before making decisions.',
+    image: '/images/projects/market-research.svg',
     tags: ['Research', 'Business'],
     filter: ['research', 'business'],
     links: {
@@ -35,11 +35,11 @@ export const projects = [
   },
   {
     id: 'pitch-deck',
-    title: 'Pitch Deck Draft',
+    title: 'Pitch Narrative',
     description:
-      'A presentation-first way to explain an idea clearly using structure, visuals, and concise storytelling.',
-    image: '/images/aarush.png',
-    tags: ['Technology', 'Innovation'],
+      'A concise storytelling structure for presenting an idea with clarity, confidence, and investor-friendly logic.',
+    image: '/images/projects/pitch-deck.svg',
+    tags: ['Communication', 'Innovation'],
     filter: ['technology', 'innovation'],
     links: {
       demo: '#',
@@ -48,11 +48,11 @@ export const projects = [
   },
   {
     id: 'finance-tracker',
-    title: 'Finance Tracker',
+    title: 'Finance Snapshot',
     description:
-      'A spreadsheet-driven tracker for simple budgeting, planning, and understanding the numbers behind decisions.',
-    image: '/images/aarush.png',
-    tags: ['Business', 'Technology'],
+      'A lightweight financial view for tracking budget decisions, planning priorities, and staying close to the numbers.',
+    image: '/images/projects/finance-tracker.svg',
+    tags: ['Planning', 'Business'],
     filter: ['business', 'technology'],
     links: {
       demo: '#',
@@ -63,9 +63,9 @@ export const projects = [
     id: 'collaboration-log',
     title: 'Collaboration Log',
     description:
-      'A notebook for keeping track of team feedback, action items, and what should happen next after a discussion.',
-    image: '/images/aarush.png',
-    tags: ['Innovation', 'Research'],
+      'A simple system for capturing team feedback, action items, and the follow-through that keeps momentum moving.',
+    image: '/images/projects/collaboration-log.svg',
+    tags: ['Leadership', 'Research'],
     filter: ['innovation', 'research'],
     links: {
       demo: '#',
@@ -76,9 +76,9 @@ export const projects = [
     id: 'ai-tools-playbook',
     title: 'AI Tools Playbook',
     description:
-      'A practical guide for choosing AI tools that help with research, writing, presentation design, and planning.',
-    image: '/images/aarush.png',
-    tags: ['Technology', 'Innovation'],
+      'A practical reference for choosing AI tools that support research, writing, presentation design, and planning.',
+    image: '/images/projects/ai-tools-playbook.svg',
+    tags: ['Technology', 'Productivity'],
     filter: ['technology', 'innovation'],
     links: {
       demo: '#',

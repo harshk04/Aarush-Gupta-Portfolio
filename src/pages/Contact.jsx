@@ -80,19 +80,19 @@ const Contact = () => {
             <div className="ui-surface overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
               <div className="h-56 overflow-hidden">
                 <img
-                  src="/images/aarush.png"
-                  alt={personalInfo.name}
+                  src="/images/contact.png"
+                  alt="Contact page visual"
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-sm font-heading font-semibold text-slate-900 dark:text-white">
+                {/* <h3 className="text-sm font-heading font-semibold text-slate-900 dark:text-white">
                   Reach out directly
                 </h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                   You can use the form or reach out through the direct contact details below.
-                </p>
+                </p> */}
                 <div className="mt-6 space-y-4">
                   {contactChannels.map((channel) => (
                     <div key={channel.label}>
@@ -141,7 +141,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="rounded-xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-white/10 dark:text-white"
-                  placeholder="Your name"
+                  placeholder="Full name"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -156,7 +156,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="rounded-xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-white/10 dark:text-white"
-                  placeholder="you@example.com"
+                  placeholder="Email address"
                 />
               </div>
             </div>
@@ -171,7 +171,7 @@ const Contact = () => {
                 value={formData.company}
                 onChange={handleChange}
                 className="rounded-xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-white/10 dark:text-white"
-                placeholder="School, startup, or team"
+                placeholder="Organisation, school, or project"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -186,7 +186,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 className="rounded-xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 dark:border-white/10 dark:text-white"
-                placeholder="Share your idea, question, or context."
+                placeholder="Briefly share your idea, question, or context."
               />
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

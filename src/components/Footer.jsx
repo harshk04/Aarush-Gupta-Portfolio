@@ -30,7 +30,8 @@ const Footer = () => {
             {personalInfo.name}
           </Link>
           <p className="max-w-xl text-sm text-slate-300">
-            A student portfolio focused on entrepreneurship, innovation, and practical learning.
+            Passionate about entrepreneurship, innovation, and continuous growth through real-world
+            learning and leadership.
           </p>
           {socialLinks.length > 0 && (
             <div className="flex flex-wrap gap-3">
@@ -97,12 +98,24 @@ const Footer = () => {
             to="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition hover:-translate-y-1 hover:bg-primary/90"
           >
-            Contact
+            <Mail className="h-4 w-4" />
+            <span>Contact</span>
           </Link>
         </div>
       </Container>
       <div className="footer-content border-t border-white/5 py-6 text-center text-xs text-slate-400">
-        © {year} {personalInfo.name}. All rights reserved.
+        <p>© {year} {personalInfo.name}. All rights reserved.</p>
+        <p className="mt-1">
+          Designed and Developed by{' '}
+          <a
+            href="http://ravviolabs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-slate-200 transition hover:text-primary"
+          >
+            RavvioLabs Technologies
+          </a>
+        </p>
       </div>
     </footer>
   );

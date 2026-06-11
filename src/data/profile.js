@@ -16,12 +16,22 @@ export const socialLinks = [
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/aarush-gupta-051795304/',
   },
+  {
+    id: 'email',
+    label: 'Email',
+    href: `mailto:${personalInfo.email}`,
+  },
+  {
+    id: 'phone',
+    label: 'Call',
+    href: `tel:${personalInfo.phone.replace(/\s/g, '')}`,
+  },
 ];
 
 export const heroContent = {
-  eyebrow: 'Aspiring Entrepreneur | Student | Future Business Leader',
+  eyebrow: 'Innovation Enthusiast | Future Business Leader',
   heading: 'Building the Future Through Innovation & Entrepreneurship',
-  subheading: 'Student • Future Entrepreneur • Business Enthusiast',
+  subheading: 'A student-led portfolio shaped by leadership, curiosity, and real-world learning.',
   primaryCta: {
     label: 'View Projects',
     href: '/projects',
@@ -35,18 +45,18 @@ export const heroContent = {
 export const profileCard = {
   title: 'Aspiring Entrepreneur',
   description:
-    'Passionate about innovation, startups, leadership, and creating meaningful business solutions.',
+    'Focused on turning ideas into practical work through discipline, creativity, and a strong sense of purpose.',
 };
 
 export const homeCta = {
   heading: "Let's build something incredible together.",
   paragraph:
-    "Whether you're looking for a collaborator, a mentee, or just want to discuss the future of innovation, I'd love to hear from you.",
+    'If you are exploring collaboration, mentorship, or a meaningful conversation about business and innovation, I would love to connect.',
   primaryLabel: 'Send an Email',
   primaryHref: `mailto:${personalInfo.email}`,
   secondaryLabel: 'Connect on LinkedIn',
   secondaryHref: socialLinks[0]?.href ?? '/contact',
-  image: '/images/aarush.png',
+  image: '/images/connect.png',
   imageAlt: 'Aarush Gupta',
 };
 
@@ -57,20 +67,36 @@ export const overviewStats = [
 ];
 
 export const coreCompetencies = [
-  'Entrepreneurship',
-  'Leadership',
-  'Business Strategy',
-  'Innovation & Problem Solving',
+  {
+    title: 'Entrepreneurship',
+    description:
+      'Spotting opportunities, shaping ideas clearly, and thinking about value before execution begins.',
+  },
+  {
+    title: 'Leadership',
+    description:
+      'Taking initiative, communicating with clarity, and helping teams stay aligned around a shared goal.',
+  },
+  {
+    title: 'Business Strategy',
+    description:
+      'Connecting planning, judgment, and execution so ideas can move from concept to real-world traction.',
+  },
+  {
+    title: 'Innovation & Problem Solving',
+    description:
+      'Approaching challenges with curiosity, practical thinking, and the willingness to test better solutions.',
+  },
 ];
 
 export const aboutContent = {
   title: 'My Journey',
   description:
-    'I am a student with a strong passion for entrepreneurship, innovation, and business leadership. I actively participate in internships and practical learning experiences to develop real-world skills while preparing for higher education and future business ventures.',
+    'I am a student in Jaipur building toward a future in entrepreneurship and business leadership. My growth comes from academics, internships, self-directed learning, and the discipline to turn ideas into action.',
   introduction:
-    'I am passionate about solving real-world problems through business, innovation, and technology. My goal is to pursue higher education, gain valuable experience, and build impactful companies that create lasting value.',
+    'What draws me to entrepreneurship is the combination of creativity and responsibility. I enjoy understanding problems, thinking through solutions, and learning how to turn insight into meaningful work.',
   futureVision:
-    'I believe in continuous learning, practical experience, and creating solutions that make a real impact. Through internships, projects, and academic growth, I am building the foundation for my entrepreneurial journey.',
+    'Over time, I want to develop the judgment, leadership, and execution needed to create businesses that are practical, ethical, and genuinely useful to people.',
   focusAreas: [
     'Entrepreneurship',
     'Leadership',
@@ -78,44 +104,39 @@ export const aboutContent = {
     'Innovation & Problem Solving',
   ],
   traits: [
-    'Creativity & Innovation',
-    'Integrity & Honesty',
+    'Curiosity & Initiative',
+    'Integrity & Accountability',
     'Continuous Learning',
     'Leadership',
-    'Excellence & Discipline',
+    'Discipline & Excellence',
   ],
-};
-
-export const philosophyQuote = {
-  text: 'Success comes from consistent learning, disciplined execution, and the courage to innovate.',
-  attribution: '',
 };
 
 export const coreValues = [
   {
-    title: 'Creativity & Innovation',
+    title: 'Curiosity',
     description:
-      'I believe in finding creative solutions to real-world problems and continuously exploring new ideas that can create meaningful impact.',
+      'I stay open to new ideas, ask better questions, and keep learning so I can grow through every experience.',
   },
   {
-    title: 'Integrity & Honesty',
+    title: 'Integrity',
     description:
-      'I value honesty, transparency, and ethical decision-making in every aspect of my academic, professional, and personal journey.',
+      'I value honesty, accountability, and ethical decision-making in both academic work and everyday life.',
   },
   {
-    title: 'Continuous Learning',
+    title: 'Discipline',
     description:
-      'I strive to improve myself every day by embracing new knowledge, practical experiences, and lifelong learning.',
+      'I believe consistent effort, structure, and follow-through are essential for long-term progress.',
   },
   {
-    title: 'Leadership',
+    title: 'Initiative',
     description:
-      'I believe true leadership is about inspiring others, taking responsibility, and working collaboratively toward a shared vision.',
+      'I like taking ownership early, turning ideas into action, and helping momentum build around meaningful work.',
   },
   {
-    title: 'Excellence & Discipline',
+    title: 'Impact',
     description:
-      'I am committed to delivering my best in everything I do, maintaining high standards, discipline, and consistency in achieving my goals.',
+      'I aim to create work that is practical, thoughtful, and genuinely useful to the people it reaches.',
   },
 ];
 
@@ -126,7 +147,8 @@ export const education = [
     period: 'April 2020 to Present',
     status: 'Current School',
     image: '/images/jpis.jpeg',
-    description: 'Currently in 12th and studying at JPIS in Jaipur.',
+    description:
+      'Currently in 12th at JPIS in Jaipur, where I am strengthening academics, communication, and the discipline needed for higher education.',
   },
   {
     school: 'Maharaja Sawai Man Singh Vidyalaya',
@@ -134,7 +156,8 @@ export const education = [
     period: 'April 2014 to March 2020',
     status: 'Completed',
     image: '/images/maharajaschool.png',
-    description: 'Early schooling and a strong foundation in academics and habits of learning.',
+    description:
+      'An early foundation that built curiosity, consistency, and the habits that continue to shape how I learn today.',
   },
 ];
 
@@ -146,9 +169,9 @@ export const experience = [
     tag: 'Experience',
     category: 'professional',
     description: [
-      'Participate in internships and practical learning experiences to develop real-world skills.',
-      'Use each opportunity to strengthen communication, responsibility, and execution.',
-      'Learn how ideas are shaped, tested, and improved in real business settings.',
+      'Apply classroom learning in practical settings to better understand how business decisions are made.',
+      'Strengthen communication, responsibility, and execution through real-world exposure.',
+      'Observe how ideas are refined through feedback, structure, and consistent follow-through.',
     ],
   },
   {
@@ -158,8 +181,8 @@ export const experience = [
     tag: 'Self-Directed',
     category: 'professional',
     description: [
-      'Study business, innovation, and technology through self-directed learning.',
-      'Turn ideas into notes, plans, presentations, and simple working models.',
+      'Study business, innovation, and technology through self-directed research and reflection.',
+      'Turn ideas into notes, plans, and simple working models that make the next step clearer.',
     ],
   },
   {
@@ -169,8 +192,8 @@ export const experience = [
     tag: 'Academic',
     category: 'community',
     description: [
-      'Balance academics with practical learning so the two reinforce each other.',
-      'Build the discipline needed for higher education and future business ventures.',
+      'Balance academic responsibility with practical learning so each experience adds depth to the other.',
+      'Build the discipline and perspective needed for higher education and future business ventures.',
     ],
   },
   {
@@ -180,8 +203,8 @@ export const experience = [
     tag: 'Leadership',
     category: 'community',
     description: [
-      'Work with others to communicate clearly, stay organised, and move ideas forward.',
-      'Practice leadership by listening, planning, and helping teams stay focused.',
+      'Work with others to communicate clearly, stay organised, and move ideas forward with purpose.',
+      'Practice leadership by listening well, planning carefully, and helping teams stay focused.',
     ],
   },
 ];
@@ -189,64 +212,40 @@ export const experience = [
 export const professionalExperience = experience.filter((item) => item.category === 'professional');
 export const otherExperience = experience.filter((item) => item.category !== 'professional');
 
-export const services = [
-  {
-    title: 'Entrepreneurship Mindset',
-    description:
-      'Looking at problems like opportunities and turning early ideas into simple, testable plans.',
-    highlights: ['Problem framing', 'Opportunity spotting', 'Idea validation'],
-    icon: 'brain-circuit',
-  },
-  {
-    title: 'Business Strategy',
-    description:
-      'Thinking about markets, value, and execution so a concept can move from thought to action.',
-    highlights: ['Planning', 'Decision-making', 'Financial awareness'],
-    icon: 'layers',
-  },
-  {
-    title: 'Communication and Presentation',
-    description:
-      'Using writing, slides, and speaking to make ideas easier to understand and support.',
-    highlights: ['Public speaking', 'PowerPoint', 'Canva'],
-    icon: 'cloud',
-  },
-];
-
 export const courseCertificates = [
   {
     title: 'AI For Beginners',
-    description: 'Online course completion certificate.',
+    description: 'A strong introduction to artificial intelligence concepts and practical awareness.',
     link: '/certificates/AI For Beginners.pdf',
     category: 'Course completion',
   },
   {
-    title: 'Agile Project Maqnagement',
-    description: 'Online course completion certificate.',
+    title: 'Agile Project Management',
+    description: 'Built a stronger understanding of planning, iteration, and responsive execution.',
     link: '/certificates/Agile Project Maqnagement.pdf',
     category: 'Course completion',
   },
   {
     title: 'AI for Business Professionals',
-    description: 'Online course completion certificate.',
+    description: 'Explored how AI can support business decisions, productivity, and smarter workflows.',
     link: '/certificates/AI for Business Professionals.pdf',
     category: 'Course completion',
   },
   {
     title: 'Professional Networking for Career Growth',
-    description: 'Online course completion certificate.',
+    description: 'Focused on building professional relationships with clarity, confidence, and purpose.',
     link: '/certificates/Professional Networking for Career Growth.pdf',
     category: 'Course completion',
   },
   {
     title: 'Introduction to Cybersecurity Awareness',
-    description: 'Online course completion certificate.',
+    description: 'Gained practical awareness of digital safety, privacy, and responsible online behavior.',
     link: '/certificates/Introduction to Cybersecurity Awareness.pdf',
     category: 'Course completion',
   },
   {
     title: 'CX For Business Success',
-    description: 'Online course completion certificate.',
+    description: 'Learned how customer experience shapes trust, retention, and long-term business success.',
     link: '/certificates/CX For Business Success.pdf',
     category: 'Course completion',
   },
@@ -255,79 +254,79 @@ export const courseCertificates = [
 export const companyCertificates = [
   {
     title: 'Asha Ferrous Industries',
-    description: 'Certificate from company/service involvement.',
+    description: 'Industry exposure that helped connect classroom ideas with real operational work.',
     link: '/certificates/Asha Ferrous Industries.pdf',
     category: 'Company / service',
   },
   {
     title: 'Deepak Transformers Private Limited',
-    description: 'Certificate from company/service involvement.',
+    description: 'Practical learning experience that added perspective on business processes and teamwork.',
     link: '/certificates/Deepak Transformers Private Limited.pdf',
     category: 'Company / service',
   },
   {
     title: 'Divya Electricals',
-    description: 'Certificate from company/service involvement.',
+    description: 'A meaningful step in understanding how consistent effort supports real business outcomes.',
     link: '/certificates/Divya Electricals.pdf',
     category: 'Company / service',
   },
   {
     title: 'Jupiter Lamination',
-    description: 'Certificate from company/service involvement.',
+    description: 'Exposure to a working environment where observation and discipline mattered every day.',
     link: '/certificates/Jupiter Lamination.pdf',
     category: 'Company / service',
   },
   {
     title: 'Pulkit Oil And Chem LLP',
-    description: 'Certificate from company/service involvement.',
+    description: 'A practical introduction to business activity, responsibility, and operational learning.',
     link: '/certificates/Pulkit Oil And Chem LLP.pdf',
     category: 'Company / service',
   },
   {
     title: 'Raj Trans Stamping Pvt. Ltd.',
-    description: 'Certificate from company/service involvement.',
+    description: 'Real-world exposure that strengthened awareness of industrial processes and standards.',
     link: '/certificates/Raj Trans Stamping Pvt. Ltd..pdf',
     category: 'Company / service',
   },
   {
     title: 'Rajasthan Metal & Chemical Industries',
-    description: 'Certificate from company/service involvement.',
+    description: 'Learning that highlighted how structure, scale, and process shape business performance.',
     link: '/certificates/Rajasthan Metal & Chemical Industries.pdf',
     category: 'Company / service',
   },
   {
     title: 'Rajasthan Metal Industries',
-    description: 'Certificate from company/service involvement.',
+    description: 'Exposure that reinforced the value of observation, consistency, and professional conduct.',
     link: '/certificates/Rajasthan Metal Industries.pdf',
     category: 'Company / service',
   },
   {
     title: 'Rama Stamping',
-    description: 'Certificate from company/service involvement.',
+    description: 'Hands-on learning that offered a clearer view of how businesses operate in practice.',
     link: '/certificates/Rama Stamping.pdf',
     category: 'Company / service',
   },
   {
     title: 'Sharad Industrial Products',
-    description: 'Certificate from company/service involvement.',
+    description: 'Practical exposure that helped connect ideas, systems, and business outcomes.',
     link: '/certificates/Sharad Industrial Products.pdf',
     category: 'Company / service',
   },
   {
     title: 'Shri Nath Cable & Condusctors',
-    description: 'Certificate from company/service involvement.',
+    description: 'Learning experience that added perspective on industry operations and workplace discipline.',
     link: '/certificates/Shri Nath Cable & Condusctors.pdf',
     category: 'Company / service',
   },
   {
     title: 'Super Conductor Industries',
-    description: 'Certificate from company/service involvement.',
+    description: 'Exposure to a practical setting where attention, responsibility, and process mattered.',
     link: '/certificates/Super Conductor Industries.pdf',
     category: 'Company / service',
   },
   {
     title: 'Super Transformer & Electricals',
-    description: 'Certificate from company/service involvement.',
+    description: 'A useful industry visit that strengthened awareness of production and business context.',
     link: '/certificates/Super Transformer & Electricals.pdf',
     category: 'Company / service',
   },
@@ -394,10 +393,5 @@ export const contactChannels = [
     label: 'Phone',
     value: personalInfo.phone,
     href: `tel:${personalInfo.phone.replace(/\s/g, '')}`,
-  },
-  {
-    label: 'LinkedIn',
-    value: 'aarush-gupta-051795304',
-    href: socialLinks[0].href,
   },
 ];

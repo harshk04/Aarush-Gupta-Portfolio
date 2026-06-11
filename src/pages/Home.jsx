@@ -26,7 +26,7 @@ const Home = () => {
     <div className="space-y-24">
       <Seo
         title="Home"
-        description="Aarush Gupta's portfolio focused on entrepreneurship, innovation, business leadership, and practical learning."
+        description="Aarush Gupta's portfolio highlighting entrepreneurship, innovation, leadership, and real-world learning."
         url="https://aarushgupta.is-a.dev"
       />
 
@@ -38,14 +38,17 @@ const Home = () => {
               {heroContent.eyebrow}
             </span>
             <div className="space-y-4">
-              <h1 className="text-4xl font-heading font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] dark:text-white">
-                Hi, I’m{' '}
-                <span className="bg-gradient-to-r from-primary via-emerald-400 to-sky-400 bg-clip-text text-transparent animated-gradient-text">
-                  {personalInfo.displayName}
+              <h1 className="text-4xl font-heading font-semibold leading-[1.12] text-slate-900 sm:text-5xl lg:text-[3.25rem] dark:text-white">
+                <span className="block">
+                  Hi, I’m{' '}
+                  <span className="bg-gradient-to-r from-primary via-emerald-400 to-sky-400 bg-clip-text text-transparent animated-gradient-text">
+                    {personalInfo.displayName}
+                  </span>
+                  .
                 </span>
-                .
-                <br className="hidden sm:block" />
-                {heroContent.heading}
+                <span className="mt-3 block text-[0.95em] leading-[1.25] sm:mt-4">
+                  {heroContent.heading}
+                </span>
               </h1>
               <p className="max-w-2xl text-base text-slate-700 sm:text-lg dark:text-slate-200">
                 {heroContent.subheading}
@@ -71,7 +74,7 @@ const Home = () => {
             {socialLinks.length > 0 ? (
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-[0.32em] text-slate-500 dark:text-slate-400">
-                  Find me on
+                  Connect with me
                 </span>
                 <SocialLinks links={socialLinks} className="gap-2" />
               </div>
@@ -141,15 +144,18 @@ const Home = () => {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
             <div className="ui-surface space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-                Story
+                My Journey
               </h3>
               <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">
-                My journey is shaped by the goal of becoming a business leader who creates meaningful impact through innovation and disciplined execution.
+                My journey is shaped by the goal of becoming a business leader who creates meaningful
+                impact through innovation, disciplined execution, and thoughtful decision-making.
+                I want to build ideas that solve real problems, create value for people, and grow
+                through consistent learning and purposeful action.
               </p>
             </div>
             <div className="ui-surface space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-                Core values
+                Guiding Principles
               </h3>
               <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
                 {aboutContent.traits.map((item) => (
@@ -173,12 +179,14 @@ const Home = () => {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {coreCompetencies.map((item) => (
               <div
-                key={item}
+                key={item.title}
                 className="ui-surface rounded-3xl border border-slate-200 bg-white p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
               >
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">{item}</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+                  {item.title}
+                </p>
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                  A core strength I want to keep building through school, projects, and experience.
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -190,20 +198,21 @@ const Home = () => {
         <Container className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
           <div className="ui-surface space-y-6 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
             <SectionTitle
-              eyebrow="Journey"
-              title="A quick timeline of school and practical learning."
-              description="The timeline below follows the academic path and the kind of real-world learning experiences described in the biography."
+              eyebrow="Learning Path"
+              title="Schooling, internships, and steady growth."
+              description="These milestones show how academics, practical exposure, and self-directed learning are shaping my future."
             />
             <Timeline items={featuredExperience} maxPoints={2} />
             <Button as="a" to="/about" variant="secondary">
-              See the full story
+              View my journey
             </Button>
           </div>
 
           <div className="ui-surface space-y-5 rounded-3xl border border-primary/20 bg-primary/5 p-6 shadow-soft hover:border-primary/40">
             <h3 className="text-base font-heading font-semibold text-primary">Projects</h3>
             <p className="text-sm text-slate-700 dark:text-slate-100">
-              View the projects page to explore the work areas and ideas I’m building around.
+              A selection of practical ideas and frameworks that reflect how I think about business,
+              research, and execution.
             </p>
             <div className="space-y-4">
               {featuredProjects.slice(0, 3).map((project) => (
@@ -229,8 +238,8 @@ const Home = () => {
         <Container className="space-y-8">
           <SectionTitle
             eyebrow="Education"
-            title="Schooling and academic milestones."
-            description="These are the two education stops you shared, shown with the dates that matter most."
+            title="Education and growth"
+            description="The schools below shaped the habits, perspective, and discipline I bring to new opportunities."
           />
           <div className="grid gap-6 md:grid-cols-2">
             {education.map((item) => (
@@ -247,11 +256,11 @@ const Home = () => {
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-5">
-                  <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex items-center justify-between gap-3">
                     <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
                       {item.period}
                     </span>
-                    <span className="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary/80">
+                    <span className="ml-auto rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary/80">
                       {item.status}
                     </span>
                   </div>
@@ -273,11 +282,11 @@ const Home = () => {
         <Container className="space-y-8">
           <SectionTitle
             eyebrow="Certificates"
-            title="Certificates grouped by type."
-            description="The first cards are online course completions, followed by company and service certificates, all linked to the renamed PDFs in `public/certificates`."
+            title="Selected learning credentials"
+            description="A curated snapshot of the learning and industry exposure that supports my growth as a student entrepreneur."
           />
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {certificateHighlights.map((certificate, index) => (
+            {certificateHighlights.map((certificate) => (
               <a
                 key={certificate.title}
                 href={certificate.link}
@@ -286,7 +295,7 @@ const Home = () => {
                 className="ui-surface rounded-2xl border border-slate-200 bg-white p-4 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
               >
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
-                  Page {String(index + 1).padStart(2, '0')}
+                  {certificate.category}
                 </p>
                 <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white">
                   {certificate.title}
@@ -299,11 +308,12 @@ const Home = () => {
           </div>
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Button as="a" to="/certifications" variant="secondary">
-              Open all certificate pages
+              View all credentials
             </Button>
-            <p className="text-xs text-slate-600 dark:text-slate-300">
-              The full list contains 19 linked pages, one PDF per page of the original document.
-            </p>
+            {/* <p className="text-xs text-slate-600 dark:text-slate-300">
+              More certificates and industry experiences are available on the dedicated credentials
+              page.
+            </p> */}
           </div>
         </Container>
       </section>
@@ -316,10 +326,10 @@ const Home = () => {
             <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-center">
               <div className="space-y-8">
                 <div className="max-w-3xl space-y-5">
-                  <h3 className="max-w-3xl text-4xl font-heading font-semibold leading-[1.06] text-white sm:text-5xl lg:text-[3.9rem]">
+                  <h3 className="max-w-3xl text-4xl font-heading font-semibold leading-[1.06] text-violet-100 sm:text-5xl lg:text-[3.9rem]">
                     {homeCta.heading}
                   </h3>
-                  <p className="max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
+                  <p className="max-w-2xl text-lg leading-relaxed text-violet-100/90 sm:text-xl">
                     {homeCta.paragraph}
                   </p>
                 </div>
@@ -328,7 +338,7 @@ const Home = () => {
                   <Button
                     as="a"
                     href={homeCta.primaryHref}
-                    className="bg-white px-7 py-4 text-lg font-semibold text-primary shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] hover:bg-white/95 hover:text-primary"
+                    className="bg-white px-7 py-4 text-lg font-semibold !text-black shadow-[0_18px_40px_-22px_rgba(0,0,0,0.35)] hover:bg-white/95 hover:!text-black"
                   >
                     {homeCta.primaryLabel}
                   </Button>
