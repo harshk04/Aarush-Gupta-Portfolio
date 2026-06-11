@@ -20,7 +20,7 @@ const Projects = () => {
       <Seo
         title="Projects"
         description="A gallery of idea-driven projects focused on business, research, technology, and innovation."
-        url="https://harshk.is-a.dev/harsh-projects"
+        url="https://aarushgupta.is-a.dev/projects"
       />
 
       <section className="relative overflow-hidden">

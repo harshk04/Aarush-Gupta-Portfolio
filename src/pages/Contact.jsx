@@ -65,7 +65,7 @@ const Contact = () => {
       <Seo
         title="Contact"
         description="A contact page for reaching Aarush Gupta through the form on this site."
-        url="https://harshk.is-a.dev/harsh-contact"
+        url="https://aarushgupta.is-a.dev/contact"
       />
 
       <section className="relative">

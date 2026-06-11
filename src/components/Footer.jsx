@@ -94,7 +94,7 @@ const Footer = () => {
             </p>
           </div>
           <Link
-            to="/harsh-contact"
+            to="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition hover:-translate-y-1 hover:bg-primary/90"
           >
             Contact

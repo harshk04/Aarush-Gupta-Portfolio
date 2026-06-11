@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <NavLink
-            to="/harsh-contact"
+            to="/contact"
             className="ui-surface inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
           >
             <Mail className="h-4 w-4" />
@@ -93,7 +93,7 @@ const Navbar = () => {
               </div>
               <div className="flex items-center justify-between">
                 <NavLink
-                  to="/harsh-contact"
+                  to="/contact"
                   onClick={closeMenu}
                   className="ui-surface inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                 >

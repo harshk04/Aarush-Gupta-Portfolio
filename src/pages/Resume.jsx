@@ -10,7 +10,7 @@ const Resume = () => (
     <Seo
       title="Resume"
       description="A resume-style overview of Aarush Gupta's skills, education, experience, and certificate pages."
-      url="https://harshk.is-a.dev/harsh-resume"
+      url="https://aarushgupta.is-a.dev/resume"
     />
 
     <section>

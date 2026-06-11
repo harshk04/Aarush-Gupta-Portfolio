@@ -27,7 +27,7 @@ const Home = () => {
       <Seo
         title="Home"
         description="Aarush Gupta's portfolio focused on entrepreneurship, innovation, business leadership, and practical learning."
-        url="https://harshk.is-a.dev"
+        url="https://aarushgupta.is-a.dev"
       />
 
       <section className="relative overflow-hidden">
@@ -63,7 +63,7 @@ const Home = () => {
               >
                 {heroContent.secondaryCta.label}
               </Button>
-              <Button as="a" to="/harsh-contact" variant="ghost">
+              <Button as="a" to="/contact" variant="ghost">
                 Say hello
               </Button>
             </div>
@@ -101,11 +101,17 @@ const Home = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="relative space-y-2 border-t border-white/10 px-5 py-4 text-xs text-slate-100">
-                <p className="font-semibold uppercase tracking-[0.3em] text-cyan-300">
+              <div className="relative overflow-hidden space-y-2 border-t border-white/10 px-5 py-4 text-xs text-slate-100">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.22),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(168,85,247,0.22),transparent_24%),radial-gradient(circle_at_50%_90%,rgba(20,184,166,0.18),transparent_28%)]" />
+                <div className="pointer-events-none absolute -left-20 top-2 h-24 w-24 rounded-full bg-[linear-gradient(135deg,rgba(34,211,238,0.75),rgba(59,130,246,0.35),rgba(168,85,247,0.65))] blur-2xl animate-vector-drift" />
+                <div
+                  className="pointer-events-none absolute -right-10 bottom-[-1.5rem] h-20 w-44 rounded-[2rem] bg-[linear-gradient(120deg,rgba(20,184,166,0.55),rgba(59,130,246,0.35),rgba(236,72,153,0.35))] blur-2xl animate-vector-sweep"
+                  style={{ clipPath: 'polygon(8% 20%, 100% 0, 84% 100%, 0 84%)' }}
+                />
+                <p className="relative z-10 font-semibold uppercase tracking-[0.3em] text-cyan-300">
                   {profileCard.title}
                 </p>
-                <p className="text-sm text-slate-200/90">
+                <p className="relative z-10 text-sm text-slate-200/90">
                   {profileCard.description}
                 </p>
               </div>
@@ -189,7 +195,7 @@ const Home = () => {
               description="The timeline below follows the academic path and the kind of real-world learning experiences described in the biography."
             />
             <Timeline items={featuredExperience} maxPoints={2} />
-            <Button as="a" to="/harsh-about" variant="secondary">
+            <Button as="a" to="/about" variant="secondary">
               See the full story
             </Button>
           </div>
@@ -212,7 +218,7 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <Button as="a" to="/harsh-projects" variant="secondary">
+            <Button as="a" to="/projects" variant="secondary">
               View projects
             </Button>
           </div>
@@ -292,7 +298,7 @@ const Home = () => {
             ))}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <Button as="a" to="/harsh-certifications" variant="secondary">
+            <Button as="a" to="/certifications" variant="secondary">
               Open all certificate pages
             </Button>
             <p className="text-xs text-slate-600 dark:text-slate-300">

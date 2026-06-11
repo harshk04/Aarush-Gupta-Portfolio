@@ -18,7 +18,7 @@ const Services = () => (
     <Seo
       title="Services"
       description="A summary of the kinds of thinking and support Aarush brings to entrepreneurship, planning, and presentation work."
-      url="https://harshk.is-a.dev/harsh-services"
+      url="https://aarushgupta.is-a.dev/services"
     />
 
     <section className="relative overflow-hidden">
@@ -49,7 +49,7 @@ const Services = () => (
             <li>• Organised planning and practical execution.</li>
           </ul>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Button as="a" to="/harsh-contact">
+            <Button as="a" to="/contact">
               Contact me
             </Button>
             {personalInfo.email ? (
@@ -145,7 +145,7 @@ const Services = () => (
           A short conversation can be enough to turn a vague thought into a clear next step.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Button as="a" to="/harsh-contact">
+          <Button as="a" to="/contact">
             Contact page
           </Button>
         </div>

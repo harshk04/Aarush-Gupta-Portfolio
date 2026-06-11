@@ -19,7 +19,7 @@ const About = () => {
       <Seo
         title="About"
         description="A detailed look at Aarush Gupta's journey, values, education, and entrepreneurial ambitions."
-        url="https://harshk.is-a.dev/harsh-about"
+        url="https://aarushgupta.is-a.dev/about"
       />
 
       <section className="relative overflow-hidden">
@@ -38,10 +38,10 @@ const About = () => {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button as="a" to="/harsh-contact">
+              <Button as="a" to="/contact">
                 Connect with me
               </Button>
-              <Button as="a" to="/harsh-projects" variant="secondary">
+              <Button as="a" to="/projects" variant="secondary">
                 View projects
               </Button>
             </div>

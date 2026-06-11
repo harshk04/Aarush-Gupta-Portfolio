@@ -4,8 +4,8 @@ const defaultMeta = {
   title: 'Aarush Gupta | Student Entrepreneur',
   description:
     'Portfolio of Aarush Gupta — a Class 12 student focused on entrepreneurship, innovation, technology, and practical learning.',
-  url: 'https://harshk.is-a.dev',
-  image: 'https://harshk.is-a.dev/images/aarush.png',
+  url: 'https://aarushgupta.is-a.dev',
+  image: 'https://aarushgupta.is-a.dev/images/aarush.png',
 };
 
 const Seo = ({ title, description, image, url, children }) => {

@@ -9,7 +9,7 @@ const Certifications = () => (
     <Seo
       title="Certifications"
       description="The split certificate pages from Aarush Gupta's 19-page certificate PDF."
-      url="https://harshk.is-a.dev/harsh-certifications"
+      url="https://aarushgupta.is-a.dev/certifications"
     />
 
     <section>
@@ -21,7 +21,7 @@ const Certifications = () => (
             description="The certificates are now grouped into online course completions and company/service certificates."
           />
           <div className="flex flex-wrap gap-3">
-            <Button as="a" to="/harsh-resume" variant="secondary">
+            <Button as="a" to="/resume" variant="secondary">
               View resume overview
             </Button>
           </div>

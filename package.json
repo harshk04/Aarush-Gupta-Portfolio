@@ -1,6 +1,6 @@
 {
-  "homepage": "https://github.com/harshk04/harshk04.github.io",
-  "name": "harshk04.github.io",
+  "homepage": "https://aarushgupta.is-a.dev",
+  "name": "aarush-gupta-portfolio",
   "version": "1.0.0",
   "description": "Modern multi-page portfolio built with React, Vite, and Tailwind CSS.",
   "scripts": {
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harshk04/harshk04.github.io.git"
+    "url": "git+https://github.com/aarushgupta/aarush-gupta-portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/harshk04/harshk04.github.io/issues"
+    "url": "https://github.com/aarushgupta/aarush-gupta-portfolio/issues"
   },
   "dependencies": {
     "@tsparticles/react": "^3.0.0",

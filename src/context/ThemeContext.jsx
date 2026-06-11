@@ -5,7 +5,7 @@ const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
-const storageKey = 'harsh-portfolio-theme';
+const storageKey = 'aarush-portfolio-theme';
 
 const getInitialTheme = () => {
   if (typeof window === 'undefined') return 'dark';

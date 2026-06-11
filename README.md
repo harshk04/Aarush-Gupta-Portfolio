@@ -1,8 +1,8 @@
-# Harsh Kumawat — Portfolio
+# Aarush Gupta — Portfolio
 
-A modern, multi-page portfolio for Harsh Kumawat rebuilt with React, Vite, and Tailwind CSS. The site highlights AI/ML projects, leadership experiences, and services while keeping all original content intact in a cleaner, more navigable experience.
+A modern, multi-page portfolio for Aarush Gupta rebuilt with React, Vite, and Tailwind CSS. The site highlights entrepreneurship, leadership experiences, and services while keeping all original content intact in a cleaner, more navigable experience.
 
-<a href="https://harshk.is-a.dev" target="_blank" rel="noreferrer">**Visit the live site →**</a>
+<a href="https://aarushgupta.is-a.dev" target="_blank" rel="noreferrer">**Visit the live site →**</a>
 
 ## ✨ Highlights
 - Dedicated pages for Home, About, Projects, Services, Resume, Contact, and Blog
@@ -74,7 +74,7 @@ All images live under `public/images`. Replace or add assets there and update th
 Run `npm run build` and deploy the `dist/` directory to your hosting provider of choice (GitHub Pages, Vercel, Netlify, etc.). The included `CNAME` file ensures custom-domain support on GitHub Pages when copied to the deployed output.
 
 ## 🤝 Contact
-Have feature ideas or feedback? Reach out at [kumawatharsh2004@gmail.com](mailto:kumawatharsh2004@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/harsh-kumawat-069bb324b/).
+Have feature ideas or feedback? Reach out at [aarushgupta2026@gmail.com](mailto:aarushgupta2026@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/aarush-gupta-051795304/).
 
 ---
 Crafted with curiosity and consistency ✨

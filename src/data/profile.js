@@ -1,12 +1,12 @@
 export const personalInfo = {
   name: 'Aarush Gupta',
-  displayName: 'Aarush',
+  displayName: 'Aarush Gupta',
   role: 'Aspiring Entrepreneur | Student | Future Business Leader',
   location: 'Jaipur, India',
   email: 'aarushgupta2026@gmail.com',
   phone: '+91 8209414035',
   age: 18,
-  resumeUrl: '/harsh-resume',
+  resumeUrl: '/resume',
   availability: 'In 12th',
 };
 
@@ -24,11 +24,11 @@ export const heroContent = {
   subheading: 'Student • Future Entrepreneur • Business Enthusiast',
   primaryCta: {
     label: 'View Projects',
-    href: '/harsh-projects',
+    href: '/projects',
   },
   secondaryCta: {
     label: 'Contact Me',
-    href: '/harsh-contact',
+    href: '/contact',
   },
 };
 
@@ -45,7 +45,7 @@ export const homeCta = {
   primaryLabel: 'Send an Email',
   primaryHref: `mailto:${personalInfo.email}`,
   secondaryLabel: 'Connect on LinkedIn',
-  secondaryHref: socialLinks[0]?.href ?? '/harsh-contact',
+  secondaryHref: socialLinks[0]?.href ?? '/contact',
   image: '/images/aarush.png',
   imageAlt: 'Aarush Gupta',
 };
