@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-background dark:text-white transition-colors duration-300;
+}
+
+.backdrop-blur-gradient {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    120deg,
+    rgba(99, 102, 241, 0.18),
+    rgba(20, 184, 166, 0.18)
+  );
+}
+
+.glass-panel {
+  @apply backdrop-blur-xl bg-white/5 border border-white/10;
+}
+
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+#tsparticles-footer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+.shadow-soft {
+  box-shadow: 0 25px 45px -30px rgba(15, 23, 42, 0.35), 0 10px 30px -20px rgba(15, 23, 42, 0.25);
+}
+
+.shadow-glass {
+  box-shadow: 0 12px 35px -18px rgba(99, 102, 241, 0.35);
+}
+
+.ui-surface {
+  @apply transition-all duration-300 ease-out;
+}
+
+.ui-surface:hover {
+  @apply -translate-y-1 shadow-xl;
+}
+
+.ui-surface-strong {
+  @apply transition-all duration-300 ease-out;
+}
+
+.ui-surface-strong:hover {
+  @apply -translate-y-2 shadow-xl;
+}
+
+.ui-outline-hover {
+  @apply transition-colors duration-300 ease-out;
+}
+
+.ui-outline-hover:hover {
+  @apply border-primary/40;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-move 6s linear infinite;
+}
+
+@keyframes vector-drift {
+  0% {
+    transform: translate3d(-2%, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-2%, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes vector-sweep {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+    opacity: 0.68;
+  }
+  50% {
+    transform: translate3d(8%, -4%, 0) rotate(10deg);
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+    opacity: 0.68;
+  }
+}
+
+.animate-vector-drift {
+  animation: vector-drift 12s ease-in-out infinite;
+}
+
+.animate-vector-sweep {
+  animation: vector-sweep 16s ease-in-out infinite;
+}
+
+.certification-image {
+  aspect-ratio: 16 / 9;
+}

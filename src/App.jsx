@@ -1,0 +1,30 @@
+import { Route, Routes } from 'react-router-dom';
+
+import Layout from './components/Layout.jsx';
+import Contact from './pages/Contact.jsx';
+import Home from './pages/Home.jsx';
+import NotFound from './pages/NotFound.jsx';
+import Projects from './pages/Projects.jsx';
+import Resume from './pages/Resume.jsx';
+import Services from './pages/Services.jsx';
+import About from './pages/About.jsx';
+import Certifications from './pages/Certifications.jsx';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="harsh-about" element={<About />} />
+        <Route path="harsh-projects" element={<Projects />} />
+        <Route path="harsh-services" element={<Services />} />
+        <Route path="harsh-certifications" element={<Certifications />} />
+        <Route path="harsh-resume" element={<Resume />} />
+        <Route path="harsh-contact" element={<Contact />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
+export default App;
