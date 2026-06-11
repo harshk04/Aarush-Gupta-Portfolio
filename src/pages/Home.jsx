@@ -11,7 +11,6 @@ import {
   featuredCertificates as certificateHighlights,
   homeCta,
   heroContent,
-  overviewStats,
   personalInfo,
   professionalExperience,
   profileCard,
@@ -119,21 +118,6 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container>
-          <div className="ui-surface grid gap-6 rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
-            {overviewStats.map((stat) => (
-              <div key={stat.label} className="space-y-1">
-                <p className="text-3xl font-heading font-semibold text-primary">{stat.value}</p>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-400">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </Container>
       </section>
