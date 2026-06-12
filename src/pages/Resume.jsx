@@ -316,13 +316,23 @@ const Resume = () => {
                     >
                       Open
                     </Button>
+                    <Button
+                      as="a"
+                      href={item.pdf}
+                      download
+                      variant="secondary"
+                      icon={Download}
+                      iconPosition="right"
+                    >
+                      Download
+                    </Button>
                   </div>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setActivePreview({ type: 'internship', item })}
-                  className="relative flex min-h-[360px] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
+                  className="relative hidden min-h-[360px] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 dark:border-white/10 dark:bg-white/5 lg:flex"
                   aria-label={`Open for ${item.company}`}
                 >
                   <img
@@ -458,7 +468,7 @@ const Resume = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-lg"
+            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-y-auto bg-black/60 p-2 backdrop-blur-lg sm:p-4"
             role="dialog"
             aria-modal="true"
             aria-label={
@@ -473,32 +483,32 @@ const Resume = () => {
               animate={previewAnimation.animate}
               exit={previewAnimation.exit}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="relative z-[9999] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
+              className="relative z-[9999] flex h-[90vh] w-[95vw] max-w-5xl flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950 lg:h-auto lg:max-h-[92vh]"
               onClick={(event) => event.stopPropagation()}
             >
               <button
                 type="button"
                 onClick={() => setActivePreview(null)}
-                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white"
+                className="absolute right-3 top-3 z-[10000] inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-sm transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white sm:right-4 sm:top-4"
                 aria-label="Close preview"
               >
                 <X className="h-5 w-5" />
               </button>
 
               {activePreview.type === 'internship' ? (
-                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-                  <div className="bg-slate-950 p-4 sm:p-6">
+                <div className="grid min-h-0 flex-1 gap-0 overflow-hidden lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+                  <div className="flex min-h-0 items-center justify-center bg-slate-950 p-3 sm:p-6">
                     <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
                       <img
                         src={activePreview.item.thumbnail}
                         alt={`${activePreview.item.company} certificate preview`}
-                        className="max-h-[78vh] w-full object-contain"
+                        className="max-h-full max-w-full object-contain"
                         decoding="async"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-6 p-6 sm:p-8">
+                  <div className="min-h-0 space-y-6 overflow-y-auto p-6 sm:p-8">
                     <div className="space-y-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                         {activePreview.item.type}
@@ -548,19 +558,19 @@ const Resume = () => {
                   </div>
                 </div>
               ) : (
-                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-                  <div className="bg-slate-950 p-4 sm:p-6">
+                <div className="grid min-h-0 flex-1 gap-0 overflow-hidden lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+                  <div className="flex min-h-0 items-center justify-center bg-slate-950 p-3 sm:p-6">
                     <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
                       <img
                         src={activePreview.item.preview}
                         alt={`${activePreview.item.title} certificate preview`}
-                        className="max-h-[78vh] w-full object-contain"
+                        className="max-h-full max-w-full object-contain"
                         decoding="async"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-6 p-6 sm:p-8">
+                  <div className="min-h-0 space-y-6 overflow-y-auto p-6 sm:p-8">
                     <div className="space-y-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
                         Certificate
