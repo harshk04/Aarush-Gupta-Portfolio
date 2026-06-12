@@ -6,59 +6,10 @@ import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
-
-const certificates = [
-  {
-    title: 'Effective Leadership',
-    description: 'A certificate that highlights practical leadership thinking and responsible direction.',
-    pdf: '/certificates/Effective%20Leadership.pdf',
-    preview: '/images/internships/effective-leadership.jpg',
-  },
-  {
-    title: 'Resume Writing and Job Interviewing',
-    description: 'Covers the essentials of presenting experience clearly and approaching interviews well.',
-    pdf: '/certificates/Resume%20Writing%20and%20Job%20Interviewing.pdf',
-    preview: '/images/internships/resume-writing-job-interviewing.jpg',
-  },
-  {
-    title: 'Professional Networking for Career Growth',
-    description: 'A practical introduction to building meaningful professional relationships with confidence.',
-    pdf: '/certificates/Professional%20Networking%20for%20Career%20Growth.pdf',
-    preview: '/images/internships/Professional_Networking_for_Career_Growth.jpg',
-  },
-  {
-    title: 'AI for Business Professionals',
-    description: 'Explores how AI can support smarter business decisions, productivity, and ethical use.',
-    pdf: '/certificates/AI%20for%20Business%20Professionals.pdf',
-    preview: '/images/internships/AI_for_Business_Professionals.jpg',
-  },
-  {
-    title: 'AI for Beginners',
-    description: 'A clear starting point for understanding AI concepts, data, and responsible use.',
-    pdf: '/certificates/AI%20For%20Beginners.pdf',
-    preview: '/images/internships/AI_For_Beginners.jpg',
-  },
-  {
-    title: 'CX for Business Success',
-    description: 'Focuses on customer experience, trust, and the role of listening in business growth.',
-    pdf: '/certificates/CX%20For%20Business%20Success.pdf',
-    preview: '/images/internships/CX_For_Business_Success.jpg',
-  },
-  {
-    title: 'Introduction to Cybersecurity Awareness',
-    description: 'Builds awareness of digital safety habits and the basics of protecting information.',
-    pdf: '/certificates/Introduction%20to%20Cybersecurity%20Awareness.pdf',
-    preview: '/images/internships/Introduction_to_Cybersecurity_Awareness.jpg',
-  },
-  {
-    title: 'Agile Project Management',
-    description: 'An introduction to agile planning, iteration, and flexible teamwork in projects.',
-    pdf: '/certificates/Agile%20Project%20Maqnagement.pdf',
-    preview: '/images/internships/Agile_Project_Maqnagement.jpg',
-  },
-];
+import { useCertificates } from '../admin/hooks/useCertificates.js';
 
 const Certifications = () => {
+  const certificates = useCertificates();
   const [activeCertificate, setActiveCertificate] = useState(null);
 
   useEffect(() => {
@@ -123,7 +74,7 @@ const Certifications = () => {
                   className="group relative overflow-hidden"
                   aria-label={`Preview ${certificate.title}`}
                 >
-                  <img
+                    <img
                     src={certificate.preview}
                     alt={`${certificate.title} certificate preview`}
                     className="h-64 w-full bg-white object-contain"
@@ -225,7 +176,7 @@ const Certifications = () => {
 
                   <div className="grid gap-3 sm:grid-cols-2">
                     <a
-                      href={activeCertificate.pdf}
+                      href={activeCertificate.pdf || activeCertificate.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
@@ -234,7 +185,7 @@ const Certifications = () => {
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                     <a
-                      href={activeCertificate.pdf}
+                      href={activeCertificate.pdf || activeCertificate.link}
                       download
                       className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:text-slate-200"
                     >

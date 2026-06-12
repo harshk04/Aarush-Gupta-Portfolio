@@ -8,7 +8,15 @@ const defaultMeta = {
   image: 'https://aarushgupta.is-a.dev/images/connect.jpg',
 };
 
-const Seo = ({ title, description, image, url, preloadImages = [], children }) => {
+const Seo = ({
+  title,
+  description,
+  image,
+  url,
+  preloadImages = [],
+  noIndex = false,
+  children,
+}) => {
   const metaTitle = title ? `${title} · Aarush Gupta` : defaultMeta.title;
   const metaDescription = description ?? defaultMeta.description;
   const metaUrl = url ?? defaultMeta.url;
@@ -18,7 +26,10 @@ const Seo = ({ title, description, image, url, preloadImages = [], children }) =
     <Helmet>
       <title>{metaTitle}</title>
       <meta name="description" content={metaDescription} />
-      <meta name="robots" content="index,follow,max-image-preview:large" />
+      <meta
+        name="robots"
+        content={noIndex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'}
+      />
       <meta name="author" content="Aarush Gupta" />
       <meta name="theme-color" content="#ffffff" />
       <meta property="og:title" content={metaTitle} />

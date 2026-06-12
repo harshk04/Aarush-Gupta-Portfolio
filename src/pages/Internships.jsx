@@ -21,7 +21,8 @@ import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
-import { exploredSectors, industrySkillCards, internshipTimeline, learningHighlights } from '../data/internships.js';
+import { exploredSectors, industrySkillCards, learningHighlights } from '../data/internships.js';
+import { useInternships } from '../admin/hooks/useInternships.js';
 
 const skillIconMap = {
   'Business Operations': BriefcaseBusiness,
@@ -67,6 +68,7 @@ const modalAnimation = {
 };
 
 const Internships = () => {
+  const internshipTimeline = useInternships();
   const [activeCertificate, setActiveCertificate] = useState(null);
 
   useEffect(() => {

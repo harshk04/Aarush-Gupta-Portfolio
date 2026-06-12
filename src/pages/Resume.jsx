@@ -4,8 +4,7 @@ import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
-import { education, certifications, courseCertificates } from '../data/profile.js';
-import { internshipTimeline } from '../data/internships.js';
+import { education } from '../data/profile.js';
 import {
   ArrowUpRight,
   BrainCircuit,
@@ -21,13 +20,8 @@ import {
   Users,
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-
-const resumeStats = [
-  { label: 'Academic Stage', value: 'Class 12 (IBDP)' },
-  { label: 'Internships Completed', value: String(internshipTimeline.length) },
-  { label: 'Certifications Earned', value: String(certifications.length) },
-  { label: 'Focus Areas', value: 'Entrepreneurship, Business, Innovation' },
-];
+import { useCertificates } from '../admin/hooks/useCertificates.js';
+import { useInternships } from '../admin/hooks/useInternships.js';
 
 const strengthCards = [
   {
@@ -91,7 +85,6 @@ const focusAreas = [
   'Productivity',
 ];
 
-const featuredCerts = courseCertificates;
 const previewAnimation = {
   initial: { opacity: 0, scale: 0.96, y: 16 },
   animate: { opacity: 1, scale: 1, y: 0 },
@@ -99,8 +92,17 @@ const previewAnimation = {
 };
 
 const Resume = () => {
-  const featuredExperience = internshipTimeline.slice(0, 6);
+  const certificates = useCertificates();
+  const internships = useInternships();
   const [activePreview, setActivePreview] = useState(null);
+  const resumeStats = [
+    { label: 'Academic Stage', value: 'Class 12 (IBDP)' },
+    { label: 'Internships Completed', value: String(internships.length) },
+    { label: 'Certifications Earned', value: String(certificates.length) },
+    { label: 'Focus Areas', value: 'Entrepreneurship, Business, Innovation' },
+  ];
+  const featuredCerts = certificates.slice(0, 6);
+  const featuredExperience = internships.slice(0, 6);
 
   useEffect(() => {
     if (!activePreview) return undefined;

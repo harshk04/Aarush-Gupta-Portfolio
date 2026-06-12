@@ -4,11 +4,11 @@ import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
 import SocialLinks from '../components/SocialLinks.jsx';
 import Timeline from '../components/Timeline.jsx';
+import { useCertificates } from '../admin/hooks/useCertificates.js';
 import {
   aboutContent,
   coreCompetencies,
   education,
-  featuredCertificates as certificateHighlights,
   homeCta,
   heroContent,
   personalInfo,
@@ -19,6 +19,7 @@ import {
 import { featuredProjects } from '../data/projects.js';
 
 const Home = () => {
+  const certificateHighlights = useCertificates().slice(0, 4);
   const featuredExperience = professionalExperience.slice(0, 2);
 
   return (
