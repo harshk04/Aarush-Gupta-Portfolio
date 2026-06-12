@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Button from '../components/Button.jsx';
 import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
@@ -8,15 +10,17 @@ import {
   ArrowUpRight,
   BrainCircuit,
   BriefcaseBusiness,
+  Download,
   Lightbulb,
   MessageSquare,
   Presentation,
   Rocket,
   Search,
   ShieldCheck,
+  X,
   Users,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const resumeStats = [
   { label: 'Academic Stage', value: 'Class 12 (IBDP)' },
@@ -88,9 +92,33 @@ const focusAreas = [
 ];
 
 const featuredCerts = courseCertificates;
+const previewAnimation = {
+  initial: { opacity: 0, scale: 0.96, y: 16 },
+  animate: { opacity: 1, scale: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.96, y: 16 },
+};
 
 const Resume = () => {
   const featuredExperience = internshipTimeline.slice(0, 6);
+  const [activePreview, setActivePreview] = useState(null);
+
+  useEffect(() => {
+    if (!activePreview) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActivePreview(null);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [activePreview]);
 
   return (
     <div className="space-y-20">
@@ -281,23 +309,21 @@ const Resume = () => {
 
                   <div className="flex flex-wrap gap-3 pt-2">
                     <Button
-                      as="a"
-                      href={item.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      type="button"
+                      onClick={() => setActivePreview({ type: 'internship', item })}
                       icon={ArrowUpRight}
                       iconPosition="right"
                     >
-                      View Certificate
+                      Open
                     </Button>
                   </div>
                 </div>
 
                 <button
                   type="button"
-                  onClick={() => window.open(item.pdf, '_blank', 'noopener,noreferrer')}
+                  onClick={() => setActivePreview({ type: 'internship', item })}
                   className="relative flex min-h-[360px] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
-                  aria-label={`Open certificate for ${item.company}`}
+                  aria-label={`Open for ${item.company}`}
                 >
                   <img
                     src={item.thumbnail}
@@ -343,14 +369,12 @@ const Resume = () => {
                   {certificate.category}
                 </p>
                 <Button
-                  as="a"
-                  href={certificate.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  type="button"
+                  onClick={() => setActivePreview({ type: 'certification', item: certificate })}
                   variant="secondary"
                   className="mt-5 w-max"
                 >
-                  View
+                  Preview
                 </Button>
               </motion.article>
             ))}
@@ -410,7 +434,7 @@ const Resume = () => {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-sm">
+            <div className="relative hidden w-full lg:mx-auto lg:block lg:max-w-sm">
               <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.25rem] bg-gradient-to-tr from-primary/20 via-cyan-400/15 to-emerald-400/20 blur-3xl" />
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_50px_-28px_rgba(15,23,42,0.28)] dark:border-white/10 dark:bg-white/5">
                 <img
@@ -424,6 +448,153 @@ const Resume = () => {
           </div>
         </Container>
       </section>
+
+      <AnimatePresence>
+        {activePreview ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-lg"
+            role="dialog"
+            aria-modal="true"
+            aria-label={
+              activePreview.type === 'internship'
+                ? `${activePreview.item.company} certificate preview`
+                : `${activePreview.item.title} certificate preview`
+            }
+            onClick={() => setActivePreview(null)}
+          >
+            <motion.div
+              initial={previewAnimation.initial}
+              animate={previewAnimation.animate}
+              exit={previewAnimation.exit}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="relative z-[9999] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActivePreview(null)}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white"
+                aria-label="Close preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {activePreview.type === 'internship' ? (
+                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+                  <div className="bg-slate-950 p-4 sm:p-6">
+                    <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
+                      <img
+                        src={activePreview.item.thumbnail}
+                        alt={`${activePreview.item.company} certificate preview`}
+                        className="max-h-[78vh] w-full object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-6 p-6 sm:p-8">
+                    <div className="space-y-3">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                        {activePreview.item.type}
+                      </p>
+                      <h3 className="text-3xl font-heading font-semibold text-slate-900 dark:text-white">
+                        {activePreview.item.company}
+                      </h3>
+                      <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+                        {activePreview.item.date}
+                      </p>
+                    </div>
+
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                      {activePreview.item.summary}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {activePreview.item.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <a
+                        href={activePreview.item.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+                      >
+                        Open
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={activePreview.item.pdf}
+                        download
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:text-slate-200"
+                      >
+                        Download
+                        <Download className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+                  <div className="bg-slate-950 p-4 sm:p-6">
+                    <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
+                      <img
+                        src={activePreview.item.preview}
+                        alt={`${activePreview.item.title} certificate preview`}
+                        className="max-h-[78vh] w-full object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-6 p-6 sm:p-8">
+                    <div className="space-y-3">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-primary">
+                        Certificate
+                      </p>
+                      <h3 className="text-3xl font-heading font-semibold text-slate-900 dark:text-white">
+                        {activePreview.item.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        {activePreview.item.description}
+                      </p>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <a
+                        href={activePreview.item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+                      >
+                        Open
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={activePreview.item.link}
+                        download
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:text-slate-200"
+                      >
+                        Download
+                        <Download className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 };

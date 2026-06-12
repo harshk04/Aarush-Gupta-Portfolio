@@ -6,7 +6,7 @@ import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
 import SocialLinks from '../components/SocialLinks.jsx';
-import { contactChannels, personalInfo, socialLinks } from '../data/profile.js';
+import { contactChannels, socialLinks } from '../data/profile.js';
 
 const Contact = () => {
   const contactEndpoint = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';

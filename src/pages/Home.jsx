@@ -179,7 +179,7 @@ const Home = () => {
       </section>
 
       <section>
-        <Container className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-start">
           <div className="ui-surface space-y-6 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
             <SectionTitle
               eyebrow="Learning Path"
@@ -192,17 +192,17 @@ const Home = () => {
             </Button>
           </div>
 
-          <div className="ui-surface space-y-5 rounded-3xl border border-primary/20 bg-primary/5 p-6 shadow-soft hover:border-primary/40">
+          <div className="ui-surface h-fit self-start space-y-4 rounded-3xl border border-primary/20 bg-primary/5 p-4 shadow-soft hover:border-primary/40 sm:p-5">
             <h3 className="text-base font-heading font-semibold text-primary">Projects</h3>
             <p className="text-sm text-slate-700 dark:text-slate-100">
               A selection of practical ideas and frameworks that reflect how I think about business,
               research, and execution.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {featuredProjects.slice(0, 3).map((project) => (
                 <div
                   key={project.id}
-                  className="ui-surface rounded-2xl border border-white/40 bg-white/40 p-4 text-sm shadow-sm hover:border-primary/40 dark:border-white/20 dark:bg-white/10"
+                  className="ui-surface rounded-2xl border border-white/40 bg-white/40 p-3 text-sm shadow-sm hover:border-primary/40 dark:border-white/20 dark:bg-white/10"
                 >
                   <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
                     {project.title}
@@ -212,7 +212,7 @@ const Home = () => {
               ))}
             </div>
             <Button as="a" to="/projects" variant="secondary">
-              View projects
+              View Projects
             </Button>
           </div>
         </Container>
@@ -273,9 +273,7 @@ const Home = () => {
             {certificateHighlights.map((certificate) => (
               <a
                 key={certificate.title}
-                href={certificate.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/certifications"
                 className="ui-surface rounded-2xl border border-slate-200 bg-white p-4 shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
               >
                 <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
@@ -292,7 +290,7 @@ const Home = () => {
           </div>
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Button as="a" to="/certifications" variant="secondary">
-              View all credentials
+              View Certificates
             </Button>
             {/* <p className="text-xs text-slate-600 dark:text-slate-300">
               More certificates and industry experiences are available on the dedicated credentials
@@ -308,8 +306,8 @@ const Home = () => {
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(30deg,rgba(255,255,255,0.07)_0%,rgba(255,255,255,0.07)_18%,transparent_18%,transparent_100%)]" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.14),transparent_30%),radial-gradient(circle_at_15%_80%,rgba(255,255,255,0.08),transparent_26%)]" />
             <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-center">
-              <div className="space-y-8">
-                <div className="max-w-3xl space-y-5">
+              <div className="max-w-none space-y-8 lg:max-w-3xl">
+                <div className="space-y-5">
                   <h3 className="max-w-3xl text-4xl font-heading font-semibold leading-[1.06] text-violet-100 sm:text-5xl lg:text-[3.9rem]">
                     {homeCta.heading}
                   </h3>
@@ -339,7 +337,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="relative mx-auto w-full max-w-[560px]">
+              <div className="relative hidden w-full max-w-[560px] lg:mx-auto lg:block">
                 <div className="absolute -inset-4 rounded-[2rem] border border-white/20 bg-white/10" />
                 <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/20 p-5 shadow-2xl">
                   <div className="overflow-hidden rounded-[1.2rem] bg-black">

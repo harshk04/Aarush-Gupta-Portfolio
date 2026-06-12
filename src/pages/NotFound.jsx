@@ -26,13 +26,13 @@ const NotFound = () => (
         to="/projects"
         className="rounded-full border border-primary/30 px-5 py-2.5 text-sm font-medium text-primary transition hover:border-primary hover:bg-primary/5"
       >
-        View projects
+        View Projects
       </Link>
       <Link
         to="/resume"
         className="rounded-full border border-slate-200 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-primary/40 hover:text-primary dark:border-white/10 dark:text-slate-200"
       >
-        View resume overview
+        View Resume
       </Link>
     </div>
   </Container>

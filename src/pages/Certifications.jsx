@@ -86,7 +86,7 @@ const Certifications = () => {
             />
             <div className="flex flex-wrap gap-3">
               <Button as="a" to="/resume" variant="secondary">
-                View resume overview
+                View Resume
               </Button>
             </div>
           </div>
@@ -114,7 +114,7 @@ const Certifications = () => {
                   <img
                     src={certificate.preview}
                     alt={`${certificate.title} certificate preview`}
-                    className="h-64 w-full bg-white object-contain transition duration-300 group-hover:scale-[1.01]"
+                    className="h-64 w-full bg-white object-contain"
                     loading="lazy"
                   />
                 </button>
@@ -138,16 +138,14 @@ const Certifications = () => {
 
                   <div className="mt-auto pt-2">
                     <Button
-                      as="a"
-                      href={certificate.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      type="button"
+                      onClick={() => setActiveCertificate(certificate)}
                       variant="secondary"
                       icon={ArrowUpRight}
                       iconPosition="right"
                       className="w-full justify-center sm:w-auto"
                     >
-                      View Certificate
+                      Open
                     </Button>
                   </div>
                 </div>
@@ -159,8 +157,12 @@ const Certifications = () => {
 
       <AnimatePresence>
         {activeCertificate ? (
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-lg"
             role="dialog"
             aria-modal="true"
             aria-label={`${activeCertificate.title} certificate viewer`}
@@ -171,7 +173,7 @@ const Certifications = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 18 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="relative w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
+              className="relative z-[9999] w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -183,13 +185,13 @@ const Certifications = () => {
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="grid gap-0 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
+              <div className="grid gap-0 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
                 <div className="bg-slate-950 p-4 sm:p-6">
                   <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white">
-                    <iframe
-                      title={activeCertificate.title}
-                      src={activeCertificate.pdf}
-                      className="h-[78vh] w-full"
+                    <img
+                      src={activeCertificate.preview}
+                      alt={`${activeCertificate.title} certificate preview`}
+                      className="max-h-[78vh] w-full object-contain"
                     />
                   </div>
                 </div>
@@ -214,7 +216,7 @@ const Certifications = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
                     >
-                      Open in new tab
+                      Open
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                     <a
@@ -229,7 +231,7 @@ const Certifications = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </div>

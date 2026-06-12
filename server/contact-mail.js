@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const DEFAULT_RECIPIENT = 'kumawatharsh2004@gmail.com';
+const DEFAULT_RECIPIENT = 'aarushgupta2026@gmail.com';
 
 const loadLocalEnv = () => {
   const envPath = path.resolve(process.cwd(), '.env');

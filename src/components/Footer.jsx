@@ -1,15 +1,15 @@
-import { Github, Instagram, Linkedin, Mail, Send, Twitter } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, PhoneCall, Send, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { navLinks } from '../data/navigation.js';
 import { personalInfo, socialLinks } from '../data/profile.js';
-import Container from './Container.jsx';
 import FooterParticles from './FooterParticles.jsx';
 
 const iconMap = {
   linkedin: Linkedin,
   github: Github,
   email: Mail,
+  phone: PhoneCall,
   twitter: Twitter,
   telegram: Send,
   instagram: Instagram,
@@ -21,8 +21,8 @@ const Footer = () => {
   return (
     <footer className="footer relative overflow-hidden rounded-t-3xl border-t border-white/10 bg-slate-900 text-slate-200 dark:bg-background/80">
       <FooterParticles />
-      <Container className="footer-content relative grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr]">
-        <div className="space-y-4">
+      <div className="footer-content relative mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-y-12 px-6 py-16 md:grid-cols-3 md:gap-x-14 md:gap-y-10 lg:px-20 lg:py-20">
+        <div className="space-y-4 md:items-start">
           <Link
             to="/"
             className="font-heading text-2xl font-semibold text-primary transition hover:text-primary/80"
@@ -43,7 +43,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={social.label}
+                    aria-label={social.id === 'phone' ? 'Call Aarush Gupta' : social.label}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-primary/50 hover:text-primary"
                   >
                     {Icon ? <Icon className="h-5 w-5" /> : social.label.slice(0, 2)}
@@ -54,7 +54,7 @@ const Footer = () => {
           )}
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 md:justify-self-center md:text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Quick links</p>
           <ul className="space-y-2 text-sm text-slate-300">
             {navLinks.map((link) => (
@@ -67,7 +67,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 md:justify-self-end md:text-right">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Contact</p>
           <div className="space-y-2 text-sm text-slate-300">
             {personalInfo.email ? (
@@ -100,9 +100,9 @@ const Footer = () => {
           >
             <Mail className="h-4 w-4" />
             <span>Contact</span>
-          </Link>
+            </Link>
         </div>
-      </Container>
+      </div>
       <div className="footer-content border-t border-white/5 py-6 text-center text-xs text-slate-400">
         <p>© {year} {personalInfo.name}. All rights reserved.</p>
         <p className="mt-1">

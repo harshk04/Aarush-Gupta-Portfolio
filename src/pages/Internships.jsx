@@ -22,7 +22,6 @@ import Container from '../components/Container.jsx';
 import SectionTitle from '../components/SectionTitle.jsx';
 import Seo from '../components/Seo.jsx';
 import { exploredSectors, industrySkillCards, internshipTimeline, learningHighlights } from '../data/internships.js';
-import { personalInfo } from '../data/profile.js';
 
 const skillIconMap = {
   'Business Operations': BriefcaseBusiness,
@@ -46,11 +45,20 @@ const highlightIconMap = {
   'Workplace responsibility': ShieldCheck,
 };
 
-const featuredPreview = [
-  internshipTimeline.find((item) => item.id === 'asha-ferrous-industries'),
-  internshipTimeline.find((item) => item.id === 'deepak-transformers'),
-  internshipTimeline.find((item) => item.id === 'jupiter-lamination'),
-].filter(Boolean);
+const internshipGallery = [
+  {
+    src: '/images/internship1.png',
+    alt: 'Industry exposure internship image',
+    title: 'Industry Exposure',
+    subtitle: 'Real-world business learning and practical insights',
+  },
+  {
+    src: '/images/internship2.png',
+    alt: 'Professional recognition internship image',
+    title: 'Professional Recognition',
+    subtitle: 'Certificates and documented achievements',
+  },
+];
 
 const modalAnimation = {
   initial: { opacity: 0, scale: 0.96, y: 16 },
@@ -91,7 +99,7 @@ const Internships = () => {
         <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-50 dark:bg-slate-950" />
         <div className="pointer-events-none absolute -left-24 top-4 h-80 w-80 rounded-full bg-cyan-400/12 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-primary/12 blur-3xl" />
-        <Container className="grid gap-12 py-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.85fr)] lg:items-center">
+        <Container className="grid gap-12 py-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.85fr)] lg:items-stretch">
           <div className="space-y-8">
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-900 shadow-sm backdrop-blur dark:border-white/15 dark:bg-white/10 dark:text-slate-100">
               Internships & Industry Exposure
@@ -137,9 +145,9 @@ const Internships = () => {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md">
+          <div className="relative mx-auto flex h-full w-full max-w-md lg:self-stretch">
             <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2.5rem] bg-gradient-to-tr from-primary/20 via-cyan-400/20 to-emerald-400/20 blur-3xl" />
-            <div className="ui-surface relative overflow-hidden rounded-[2rem] border border-white/40 bg-slate-950/90 p-4 shadow-soft dark:border-white/10">
+            <div className="ui-surface relative flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-white/40 bg-slate-950/90 p-4 shadow-soft dark:border-white/10">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.2),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.16),transparent_28%)]" />
               <div className="relative flex items-center justify-between gap-3 border-b border-white/10 px-2 pb-4">
                 <div>
@@ -150,38 +158,34 @@ const Internships = () => {
                     Certificates, exposure, and real-world growth.
                   </p>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-slate-100">
-                  {personalInfo.location}
-                </div>
               </div>
 
-              <div className="relative grid gap-3 px-1 py-4">
-                {featuredPreview.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setActiveCertificate(item)}
-                    initial={{ opacity: 0, y: 18, rotate: -1 }}
-                    whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              <div className="relative flex flex-1 flex-col gap-4 px-1 py-4">
+                {internshipGallery.map((image, index) => (
+                  <motion.div
+                    key={image.src}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.08 }}
-                    className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 text-left shadow-lg transition-transform hover:-translate-y-1 ${
-                      index === 0 ? 'ml-0' : index === 1 ? 'ml-8' : 'ml-16'
-                    }`}
+                    transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.08 }}
+                    className="group relative flex-1 min-h-0 w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
                   >
                     <img
-                      src={item.thumbnail}
-                      alt={`${item.company} certificate preview`}
-                      className="h-44 w-full object-cover opacity-90 transition duration-300 group-hover:scale-[1.02]"
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/92 via-slate-950/70 to-transparent px-4 py-3">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-cyan-200">
-                        {item.type}
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90 transition-opacity duration-500" />
+                    <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
+                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white sm:text-[0.9rem]">
+                        {image.title}
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-white">{item.company}</p>
+                      <p className="mt-1 max-w-[90%] text-xs leading-relaxed text-white/90 sm:text-sm">
+                        {image.subtitle}
+                      </p>
                     </div>
-                  </motion.button>
+                  </motion.div>
                 ))}
               </div>
 
@@ -241,14 +245,12 @@ const Internships = () => {
 
                   <div className="flex flex-wrap gap-3 pt-2">
                     <Button
-                      as="a"
-                      href={item.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      type="button"
+                      onClick={() => setActiveCertificate(item)}
                       icon={ArrowUpRight}
                       iconPosition="right"
                     >
-                      View certificate
+                      Open
                     </Button>
                     <Button
                       as="a"
@@ -267,7 +269,7 @@ const Internships = () => {
                   type="button"
                   onClick={() => setActiveCertificate(item)}
                   className="group/preview relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 text-left shadow-sm transition hover:-translate-y-1 hover:border-primary/40 dark:border-white/10 dark:bg-white/5"
-                  aria-label={`Preview certificate for ${item.company}`}
+                  aria-label={`Open for ${item.company}`}
                 >
                   <img
                     src={item.thumbnail}
@@ -364,8 +366,12 @@ const Internships = () => {
 
       <AnimatePresence>
         {activeCertificate ? (
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-lg"
             role="dialog"
             aria-modal="true"
             aria-label={`${activeCertificate.company} certificate preview`}
@@ -376,7 +382,7 @@ const Internships = () => {
               animate={modalAnimation.animate}
               exit={modalAnimation.exit}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="relative w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
+              className="relative z-[9999] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl dark:bg-slate-950"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -432,7 +438,7 @@ const Internships = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
                     >
-                      Open in new tab
+                      Open
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                     <a
@@ -447,7 +453,7 @@ const Internships = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         ) : null}
       </AnimatePresence>
     </div>

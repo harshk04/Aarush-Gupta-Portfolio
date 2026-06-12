@@ -1,20 +1,19 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const ThemeContext = createContext({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 });
 
 const storageKey = 'aarush-portfolio-theme';
 
 const getInitialTheme = () => {
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem(storageKey);
   if (stored === 'light' || stored === 'dark') {
     return stored;
   }
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  return prefersDark ? 'dark' : 'light';
+  return 'light';
 };
 
 export const ThemeProvider = ({ children }) => {

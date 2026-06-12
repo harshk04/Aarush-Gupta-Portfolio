@@ -12,7 +12,7 @@ export const projects = [
     title: 'Idea Canvas',
     description:
       'A structured framework for moving from a problem statement to a sharper business concept, a clearer value proposition, and practical next steps.',
-    image: '/images/projects/idea-canvas.svg',
+    image: '/images/ideacanvas.png',
     tags: ['Strategy', 'Innovation'],
     filter: ['business', 'innovation'],
     links: {
@@ -25,7 +25,7 @@ export const projects = [
     title: 'Market Signals',
     description:
       'A research log for collecting customer insights, competitor observations, and market patterns before making decisions.',
-    image: '/images/projects/market-research.svg',
+    image: '/images/marketsignal.png',
     tags: ['Research', 'Business'],
     filter: ['research', 'business'],
     links: {
@@ -38,7 +38,7 @@ export const projects = [
     title: 'Pitch Narrative',
     description:
       'A concise storytelling structure for presenting an idea with clarity, confidence, and investor-friendly logic.',
-    image: '/images/projects/pitch-deck.svg',
+    image: '/images/pitchnarrative.png',
     tags: ['Communication', 'Innovation'],
     filter: ['technology', 'innovation'],
     links: {
@@ -51,7 +51,7 @@ export const projects = [
     title: 'Finance Snapshot',
     description:
       'A lightweight financial view for tracking budget decisions, planning priorities, and staying close to the numbers.',
-    image: '/images/projects/finance-tracker.svg',
+    image: '/images/finance.png',
     tags: ['Planning', 'Business'],
     filter: ['business', 'technology'],
     links: {
@@ -64,7 +64,7 @@ export const projects = [
     title: 'Collaboration Log',
     description:
       'A simple system for capturing team feedback, action items, and the follow-through that keeps momentum moving.',
-    image: '/images/projects/collaboration-log.svg',
+    image: '/images/collaboration.png',
     tags: ['Leadership', 'Research'],
     filter: ['innovation', 'research'],
     links: {
@@ -77,7 +77,7 @@ export const projects = [
     title: 'AI Tools Playbook',
     description:
       'A practical reference for choosing AI tools that support research, writing, presentation design, and planning.',
-    image: '/images/projects/ai-tools-playbook.svg',
+    image: '/images/aitools.png',
     tags: ['Technology', 'Productivity'],
     filter: ['technology', 'innovation'],
     links: {
