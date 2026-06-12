@@ -56,7 +56,7 @@ export const homeCta = {
   primaryHref: `mailto:${personalInfo.email}`,
   secondaryLabel: 'Connect on LinkedIn',
   secondaryHref: socialLinks[0]?.href ?? '/contact',
-  image: '/images/connect.png',
+  image: '/images/connect.jpg',
   imageAlt: 'Aarush Gupta',
 };
 
@@ -350,7 +350,7 @@ export const blogPosts = [
     date: 'Mar 2026',
     readTime: '4 min read',
     tags: ['Entrepreneurship', 'Mindset', 'Business'],
-    heroImage: '/images/aarush.png',
+    heroImage: '/images/aarush.jpg',
     content: [
       'Entrepreneurship feels natural to me because it connects curiosity, problem-solving, and execution. I enjoy looking at how an idea can become something useful in the real world.',
       'What keeps me interested is the mix of creativity and discipline. New ideas matter, but structure and follow-through are what make them valuable.',
@@ -365,7 +365,7 @@ export const blogPosts = [
     date: 'Feb 2026',
     readTime: '5 min read',
     tags: ['Learning', 'Internships', 'Growth'],
-    heroImage: '/images/aarush.png',
+    heroImage: '/images/aarush.jpg',
     content: [
       'Practical learning is valuable because it shows how ideas behave outside a textbook. It forces me to notice details, manage time, and communicate clearly.',
       'Internships and real projects make it easier to understand what businesses actually need from people: reliability, clarity, and the ability to keep improving.',
@@ -380,7 +380,7 @@ export const blogPosts = [
     date: 'Jan 2026',
     readTime: '3 min read',
     tags: ['Ideas', 'Focus', 'Student Life'],
-    heroImage: '/images/aarush.png',
+    heroImage: '/images/aarush.jpg',
     content: [
       'When I see an opportunity, I try to understand the problem first. A good idea only becomes useful if it solves something people actually care about.',
       'I usually start with a simple outline, then add research, a clearer plan, and a few next actions. That keeps the idea manageable.',

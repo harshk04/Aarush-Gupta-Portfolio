@@ -28,19 +28,19 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur border-b border-white/10 bg-white/70 shadow-sm transition-colors dark:bg-background/80 dark:border-white/5">
-      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <header className="sticky top-0 z-50 w-full overflow-x-clip border-b border-white/10 bg-white/70 backdrop-blur shadow-sm transition-colors dark:border-white/5 dark:bg-background/80">
+      <div className="container mx-auto flex items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:gap-6">
         <NavLink
           to="/"
-          className="flex flex-1 items-center justify-center sm:flex-none sm:justify-start"
+          className="flex min-w-0 flex-1 items-center lg:flex-none"
           onClick={handleLogoClick}
         >
-          <span className="font-heading text-lg font-extrabold tracking-tight text-slate-950 transition hover:text-primary dark:text-white sm:text-xl">
+          <span className="truncate font-heading text-base font-extrabold tracking-tight text-slate-950 transition hover:text-primary dark:text-white sm:text-lg lg:text-xl">
             Aarush Gupta
           </span>
         </NavLink>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <NavLink key={link.path} to={link.path} className={linkClasses}>
               {link.label}
@@ -48,7 +48,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <NavLink
             to="/contact"
@@ -61,9 +61,11 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 md:hidden dark:border-white/10 dark:bg-white/10 dark:text-white"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 lg:hidden dark:border-white/10 dark:bg-white/10 dark:text-white"
           onClick={toggleMenu}
           aria-label="Toggle navigation"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -76,26 +78,26 @@ const Navbar = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden"
+            className="lg:hidden"
           >
-            <div className="space-y-4 px-6 pb-6 pt-2">
+            <div id="mobile-navigation" className="space-y-4 px-4 pb-6 pt-2 sm:px-6">
               <div className="flex flex-col gap-3">
                 {navLinks.map((link) => (
                   <NavLink
                     key={link.path}
                     to={link.path}
-                    className={linkClasses}
+                    className={`${linkClasses} rounded-2xl border border-transparent px-3 py-2 transition hover:border-primary/20 hover:bg-slate-100 dark:hover:bg-white/5`}
                     onClick={closeMenu}
                   >
                     {link.label}
                   </NavLink>
                 ))}
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-3">
                 <NavLink
                   to="/contact"
                   onClick={closeMenu}
-                  className="ui-surface inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                  className="ui-surface inline-flex min-w-0 items-center gap-2 rounded-full border border-primary/40 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                 >
                   <Mail className="h-4 w-4" />
                   Contact

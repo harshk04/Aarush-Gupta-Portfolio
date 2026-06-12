@@ -47,13 +47,13 @@ const highlightIconMap = {
 
 const internshipGallery = [
   {
-    src: '/images/internship1.png',
+    src: '/images/internship1.jpg',
     alt: 'Industry exposure internship image',
     title: 'Industry Exposure',
     subtitle: 'Real-world business learning and practical insights',
   },
   {
-    src: '/images/internship2.png',
+    src: '/images/internship2.jpg',
     alt: 'Professional recognition internship image',
     title: 'Professional Recognition',
     subtitle: 'Certificates and documented achievements',
@@ -175,6 +175,7 @@ const Internships = () => {
                       alt={image.alt}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90 transition-opacity duration-500" />
                     <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
@@ -276,6 +277,7 @@ const Internships = () => {
                     alt={`${item.company} certificate preview`}
                     className="h-full w-full object-cover transition duration-300 group-hover/preview:scale-[1.02]"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/55 to-transparent px-4 py-3">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-cyan-200">
@@ -400,6 +402,7 @@ const Internships = () => {
                     src={activeCertificate.thumbnail}
                     alt={`${activeCertificate.company} certificate preview`}
                     className="max-h-[78vh] w-full rounded-[1.5rem] object-contain bg-white"
+                    decoding="async"
                   />
                 </div>
 

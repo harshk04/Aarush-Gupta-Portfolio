@@ -116,6 +116,7 @@ const Certifications = () => {
                     alt={`${certificate.title} certificate preview`}
                     className="h-64 w-full bg-white object-contain"
                     loading="lazy"
+                    decoding="async"
                   />
                 </button>
 
@@ -192,6 +193,7 @@ const Certifications = () => {
                       src={activeCertificate.preview}
                       alt={`${activeCertificate.title} certificate preview`}
                       className="max-h-[78vh] w-full object-contain"
+                      decoding="async"
                     />
                   </div>
                 </div>

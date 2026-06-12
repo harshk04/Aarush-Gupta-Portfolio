@@ -21,6 +21,7 @@ const About = () => {
         title="About"
         description="A closer look at Aarush Gupta's journey, values, education, and entrepreneurial direction."
         url="https://aarushgupta.is-a.dev/about"
+        preloadImages={['/images/about.jpg']}
       />
 
       <section className="relative">
@@ -165,10 +166,12 @@ const About = () => {
               <div className="relative overflow-hidden rounded-[1.9rem] border border-slate-200 bg-slate-950 dark:border-white/10">
                 <div className="h-[300px] overflow-hidden sm:h-[360px] md:h-[440px] lg:aspect-[4/5.1] lg:h-auto">
                   <img
-                    src="/images/about.png"
+                    src="/images/about.jpg"
                     alt={personalInfo.name}
                     className="h-full w-full object-cover object-center"
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
 

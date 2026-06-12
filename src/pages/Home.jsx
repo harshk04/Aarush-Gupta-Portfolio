@@ -27,6 +27,7 @@ const Home = () => {
         title="Home"
         description="Aarush Gupta's portfolio highlighting entrepreneurship, innovation, leadership, and real-world learning."
         url="https://aarushgupta.is-a.dev"
+        preloadImages={['/images/aarush.jpg']}
       />
 
       <section className="relative overflow-hidden">
@@ -97,10 +98,12 @@ const Home = () => {
               </div>
               <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur-sm">
                 <img
-                  src="/images/aarush.png"
+                  src="/images/aarush.jpg"
                   alt={personalInfo.name}
                   className="h-full w-full object-cover"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
               <div className="relative overflow-hidden space-y-2 border-t border-white/10 px-5 py-4 text-xs text-slate-100">
@@ -346,6 +349,7 @@ const Home = () => {
                       alt={homeCta.imageAlt}
                       className="aspect-square w-full object-cover object-center"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>

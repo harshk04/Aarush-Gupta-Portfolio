@@ -66,6 +66,7 @@ const Contact = () => {
         title="Contact"
         description="A contact page for reaching Aarush Gupta through the form on this site."
         url="https://aarushgupta.is-a.dev/contact"
+        preloadImages={['/images/contact.jpg']}
       />
 
       <section className="relative">
@@ -80,10 +81,12 @@ const Contact = () => {
             <div className="ui-surface overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft hover:border-primary/40 dark:border-white/10 dark:bg-white/5">
               <div className="h-56 overflow-hidden">
                 <img
-                  src="/images/contact.png"
+                  src="/images/contact.jpg"
                   alt="Contact page visual"
                   className="h-full w-full object-cover"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
               <div className="p-6">

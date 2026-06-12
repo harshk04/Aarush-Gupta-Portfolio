@@ -330,6 +330,7 @@ const Resume = () => {
                     alt={`${item.company} certificate preview`}
                     className="h-full w-full object-contain object-center"
                     loading="lazy"
+                    decoding="async"
                   />
                 </button>
               </motion.article>
@@ -438,10 +439,11 @@ const Resume = () => {
               <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.25rem] bg-gradient-to-tr from-primary/20 via-cyan-400/15 to-emerald-400/20 blur-3xl" />
               <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_50px_-28px_rgba(15,23,42,0.28)] dark:border-white/10 dark:bg-white/5">
                 <img
-                  src="/images/connect.png"
+                  src="/images/connect.jpg"
                   alt="Aarush Gupta connecting with collaborators"
                   className="h-full w-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -491,6 +493,7 @@ const Resume = () => {
                         src={activePreview.item.thumbnail}
                         alt={`${activePreview.item.company} certificate preview`}
                         className="max-h-[78vh] w-full object-contain"
+                        decoding="async"
                       />
                     </div>
                   </div>
@@ -552,6 +555,7 @@ const Resume = () => {
                         src={activePreview.item.preview}
                         alt={`${activePreview.item.title} certificate preview`}
                         className="max-h-[78vh] w-full object-contain"
+                        decoding="async"
                       />
                     </div>
                   </div>
