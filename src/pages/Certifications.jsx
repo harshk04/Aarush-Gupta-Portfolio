@@ -9,6 +9,18 @@ import Seo from '../components/Seo.jsx';
 
 const certificates = [
   {
+    title: 'Effective Leadership',
+    description: 'A certificate that highlights practical leadership thinking and responsible direction.',
+    pdf: '/certificates/Effective%20Leadership.pdf',
+    preview: '/images/internships/effective-leadership.jpg',
+  },
+  {
+    title: 'Resume Writing and Job Interviewing',
+    description: 'Covers the essentials of presenting experience clearly and approaching interviews well.',
+    pdf: '/certificates/Resume%20Writing%20and%20Job%20Interviewing.pdf',
+    preview: '/images/internships/resume-writing-job-interviewing.jpg',
+  },
+  {
     title: 'Professional Networking for Career Growth',
     description: 'A practical introduction to building meaningful professional relationships with confidence.',
     pdf: '/certificates/Professional%20Networking%20for%20Career%20Growth.pdf',
@@ -125,9 +137,9 @@ const Certifications = () => {
                     <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
                       Certificate
                     </span>
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400 dark:text-slate-500">
+                    {/* <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400 dark:text-slate-500">
                       Credential
-                    </span>
+                    </span> */}
                   </div>
 
                   <h3 className="text-xl font-heading font-semibold text-slate-900 dark:text-white">

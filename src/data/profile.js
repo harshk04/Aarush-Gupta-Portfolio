@@ -152,10 +152,10 @@ export const education = [
   },
   {
     school: 'Maharaja Sawai Man Singh Vidyalaya',
-    program: 'UKG to 5th',
-    period: 'April 2014 to March 2020',
+    program: 'LKG to 5th',
+    period: 'April 2013 to March 2020',
     status: 'Completed',
-    image: '/images/maharajaschool.png',
+    image: '/images/maharajaschool.jpeg',
     description:
       'An early foundation that built curiosity, consistency, and the habits that continue to shape how I learn today.',
   },
